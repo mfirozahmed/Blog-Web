@@ -5,11 +5,11 @@ export const getPostList = async () => {
     return res.data;
 };
 
-/**
- * storeNewProject()
- *
- * @param {object} data
- */
+export const showPost = async (data) => {
+    const res = await Axios.get(`http://127.0.0.1:8000/api/posts/${data}`);
+    return res;
+};
+
 export const storeNewPost = async (data) => {
     const getLoginData = localStorage.getItem("loginData");
     if (getLoginData != null) {
@@ -33,11 +33,6 @@ export const getMyPostList = async () => {
 };
 
 export const updatePost = async (id, data) => {
-    const getLoginData = localStorage.getItem("loginData");
-    if (getLoginData != null) {
-        const userData = JSON.parse(getLoginData);
-        data.user_id = userData.user.id;
-    }
     const res = await Axios.put(`http://127.0.0.1:8000/api/posts/${id}`, data);
     return res.data;
 };

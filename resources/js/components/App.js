@@ -51,23 +51,27 @@ const App = () => {
                                 exact={true}
                                 component={MyBlogs}
                             />
-                            {/* { Private Authenticated Routes */}
                             <Route
-                                authed={info.isLoggedIn}
-                                path={`${PUBLIC_URL}posts/view/:id`}
+                                path={`${PUBLIC_URL}posts/:id`}
                                 component={PostView}
+                                exact={true}
+                            />
+                            <Route
+                                path={`${PUBLIC_URL}post/edit/:id`}
+                                component={PostEdit}
+                                exact={true}
                             />
                             <AuthenticatedRoutes
                                 authed={info.isLoggedIn}
-                                path={`${PUBLIC_URL}posts/create`}
+                                path={`${PUBLIC_URL}post/create`}
                                 component={PostCreate}
+                                exact={true}
                             />
                             {/* <AuthenticatedRoutes
                                 authed={info.isLoggedIn}
                                 path={`${PUBLIC_URL}posts`}
                                 component={PostList}
                             /> */}
-                            {/* Private Authenticated Routes */}
                             <Route
                                 path={`${PUBLIC_URL}register`}
                                 exact={true}

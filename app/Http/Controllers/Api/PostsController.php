@@ -47,11 +47,10 @@ class PostsController extends Controller
         ]);
     }
 
-    public function update($id, Request $request){
+    public function update(Request $request, $id){
         $post = Post::find($id);
         $post->title = $request->title;
         $post->description = $request->description;
-        $post->user_id = $request->user_id;
         $post->save();
 
         return response()->json([

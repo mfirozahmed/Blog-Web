@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Card, Button, Badge, Spinner, Form } from "react-bootstrap";
-import { Link, withRouter } from "react-router-dom";
-import Axios from "axios";
+import React, { useState } from "react";
+import { Card, Button, Spinner, Form } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
 import { PUBLIC_URL } from "../../../constants";
 import { storeNewPost } from "../../../services/PostService";
 
@@ -53,11 +52,6 @@ const PostCreate = (props) => {
                 <div className="float-left">
                     <h2>New Post</h2>
                 </div>
-                <div className="float-right">
-                    <Link to={`${PUBLIC_URL}posts`} className="btn btn-info">
-                        See All Post
-                    </Link>
-                </div>
                 <div className="clearfix"></div>
             </div>
 
@@ -65,11 +59,11 @@ const PostCreate = (props) => {
                 <Card.Body>
                     <Form onSubmit={(e) => submitForm(e)}>
                         <Form.Group controlId="name">
-                            <Form.Label>Post Name</Form.Label>
+                            <Form.Label>Title</Form.Label>
                             <Form.Control
                                 type="text"
                                 placeholder="Enter Project Name"
-                                value={post.name}
+                                value=""
                                 name="name"
                                 onChange={(e) => changeInput(e)}
                             />
@@ -79,14 +73,14 @@ const PostCreate = (props) => {
                         )}
 
                         <Form.Group controlId="description">
-                            <Form.Label>Project Description</Form.Label>
+                            <Form.Label>Description</Form.Label>
                             <Form.Control
                                 type="text"
                                 placeholder="Enter Post Description"
                                 as="textarea"
                                 rows="5"
                                 name="description"
-                                value={post.description}
+                                value=""
                                 onChange={(e) => changeInput(e)}
                             />
                         </Form.Group>
@@ -107,7 +101,7 @@ const PostCreate = (props) => {
 
                         {!post.isLoading && (
                             <Button variant="primary" type="submit">
-                                Save Project
+                                Submit
                             </Button>
                         )}
                     </Form>

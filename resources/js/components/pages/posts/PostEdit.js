@@ -1,19 +1,35 @@
 import React, { useState, useEffect } from "react";
-import { Card, Button, Badge, Spinner, Form } from "react-bootstrap";
-import { Link, withRouter } from "react-router-dom";
-import Axios from "axios";
+import { Card, Button, Spinner, Form } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
 import { PUBLIC_URL } from "../../../constants";
-import { storeNewPost, updatePost } from "../../../services/PostService";
+import { updatePost, showPost } from "../../../services/PostService";
 
 const PostEdit = (props) => {
     const [post, setPost] = useState({
         isLoading: false,
-        id: props.project.id,
-        name: props.project.name,
-        description: props.project.description,
-        status: props.project.status,
+        id: "",
+        name: "",
+        description: "",
         errors: {},
     });
+
+    useEffect(() => {
+        getPostDetails();
+    }, []);
+
+    const getPostDetails = async () => {
+        setPost({ ...post, isLoading: true });
+        const postId = props.match.params.id;
+        const res = await showPost(postId);
+        console.log(res);
+        setPost({
+            ...post,
+            id: postId,
+            name: res.data.post.title,
+            description: res.data.post.description,
+            isLoading: false,
+        });
+    };
 
     const changeInput = (e) => {
         setPost({
@@ -28,88 +44,69 @@ const PostEdit = (props) => {
 
         setPost({ ...post, isLoading: true });
         const postBody = {
-            name: post.name,
+            title: post.name,
             description: post.description,
-            status: post.status,
         };
         const response = await updatePost(post.id, postBody);
         if (response.success) {
             setPost({
+                ...post,
                 name: "",
                 description: "",
                 isLoading: false,
             });
-            props.onCompletePostEdit();
+            history.push(`${PUBLIC_URL}posts/${post.id}`);
         } else {
             setPost({
+                ...post,
                 errors: response.errors,
                 isLoading: false,
             });
         }
     };
+
     return (
         <>
+            <div className="header-part">
+                <div className="float-left">
+                    <h2>Edit Post</h2>
+                </div>
+                <div className="clearfix"></div>
+            </div>
             <Card>
                 <Card.Body>
                     <Form onSubmit={(e) => submitForm(e)}>
-                        <div className="row mb-2">
-                            <div className="col-6">
-                                <Form.Group controlId="name">
-                                    <Form.Label>Project Name</Form.Label>
-                                    <Form.Control
-                                        type="text"
-                                        placeholder="Enter Project Name"
-                                        value={post.name}
-                                        name="name"
-                                        onChange={(e) => changeInput(e)}
-                                    />
-                                </Form.Group>
-                                {post.errors && post.errors.name && (
-                                    <p className="text-danger">
-                                        {post.errors.name[0]}
-                                    </p>
-                                )}
-                            </div>
+                        <Form.Group controlId="name">
+                            <Form.Label>Title</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Enter Project Name"
+                                value={post.name}
+                                name="name"
+                                onChange={(e) => changeInput(e)}
+                            />
+                        </Form.Group>
+                        {post.errors && post.errors.name && (
+                            <p className="text-danger">{post.errors.name[0]}</p>
+                        )}
 
-                            <div className="col-6">
-                                <Form.Group controlId="description">
-                                    <Form.Label>Project Description</Form.Label>
-                                    <Form.Control
-                                        type="text"
-                                        placeholder="Enter Project Description"
-                                        as="textarea"
-                                        rows="1"
-                                        name="description"
-                                        value={post.description}
-                                        onChange={(e) => changeInput(e)}
-                                    />
-                                </Form.Group>
-                                {post.errors && post.errors.description && (
-                                    <p className="text-danger">
-                                        {post.errors.description[0]}
-                                    </p>
-                                )}
-                            </div>
-
-                            <div className="col-6">
-                                <Form.Label>Project Status</Form.Label>
-                                <Form.Control
-                                    as="select"
-                                    value={post.status}
-                                    name="status"
-                                    onChange={(e) => changeInput(e)}
-                                >
-                                    <option value={0}>Pending</option>
-                                    <option value={1}>Completed</option>
-                                </Form.Control>
-
-                                {post.errors && post.errors.status && (
-                                    <p className="text-danger">
-                                        {post.errors.status[0]}
-                                    </p>
-                                )}
-                            </div>
-                        </div>
+                        <Form.Group controlId="description">
+                            <Form.Label>Description</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Enter Post Description"
+                                as="textarea"
+                                rows="5"
+                                name="description"
+                                value={post.description}
+                                onChange={(e) => changeInput(e)}
+                            />
+                        </Form.Group>
+                        {post.errors && post.errors.description && (
+                            <p className="text-danger">
+                                {post.errors.description[0]}
+                            </p>
+                        )}
 
                         {post.isLoading && (
                             <Button variant="primary" type="button" disabled>
@@ -122,7 +119,7 @@ const PostEdit = (props) => {
 
                         {!post.isLoading && (
                             <Button variant="primary" type="submit">
-                                Save Project
+                                Submit
                             </Button>
                         )}
                     </Form>

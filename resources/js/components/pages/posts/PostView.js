@@ -1,70 +1,58 @@
 import React, { useState, useEffect } from "react";
-import {
-    Card,
-    Button,
-    Badge,
-    Spinner,
-    InputGroup,
-    FormControl,
-    Alert,
-} from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Axios from "axios";
 import { PUBLIC_URL } from "../../../constants";
-import ProjectEdit from "./PostEdit";
+import { showPost } from "../../../services/PostService";
+import { checkIfAuthenticated } from "../../../services/AuthService";
 
 const PostView = (props) => {
     const [post, setPost] = useState({
+        userId: "",
+        postId: "",
         postDetails: {},
         commentList: [],
         isLoading: false,
-
-        toggleAddTask: false,
-        toggleEditProject: false,
-
-        searchText: "",
     });
 
     useEffect(() => {
-        getProjectDetails();
+        getPostDetails();
     }, []);
 
-    const getProjectDetails = async () => {
+    const getPostDetails = async () => {
         setPost({ ...post, isLoading: true });
-        const res = await Axios.get(
-            `http://127.0.0.1:8000/api/posts/${props.match.params.id}`
-        );
+        const postId = props.match.params.id;
+        const res = await showPost(postId);
+        //console.log(res);
+        const isAuthenticated = checkIfAuthenticated();
+        let userId = "";
+        if (isAuthenticated) {
+            userId = isAuthenticated.id;
+        }
+        //console.log("Postview: " + res.data.msg);
         setPost({
             ...post,
+            userId: userId,
+            postId: postId,
             commentList: res.data.comments,
             postDetails: res.data.post,
             isLoading: false,
         });
     };
 
-    const toggleAddTask = () => {
-        alert("ok");
-    };
-
     return (
         <>
             <div className="header-part">
                 <div className="float-left">
-                    {!post.toggleEditProject && (
-                        <>
-                            <h2>{post.postDetails.title}</h2>
-                            <div>{post.postDetails.description}</div>
-                        </>
-                    )}
+                    <h2>{post.postDetails.title}</h2>
+                    <div>{post.postDetails.description}</div>
                 </div>
                 <div className="float-right">
-                    <Button
-                        className="btn btn-info mr-2"
-                        onClick={() => toggleAddTask()}
+                    <Link
+                        to={`${PUBLIC_URL}post/edit/${post.postId}`}
+                        className="btn btn-danger"
                     >
-                        {!post.toggleAddTask && <span>+ Add Task</span>}
-                        {post.toggleAddTask && <span>Cancel Adding</span>}
-                    </Button>
+                        Edit
+                    </Link>
                 </div>
                 <div className="clearfix"></div>
             </div>
