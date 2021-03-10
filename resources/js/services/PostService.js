@@ -38,7 +38,7 @@ export const updatePost = async (id, data) => {
 };
 
 export const deletePost = async (id) => {
-    console.log("id", id);
+    //console.log("id", id);
     const res = await Axios.delete(`http://127.0.0.1:8000/api/posts/${id}`);
     return res.data;
 };

@@ -22,7 +22,7 @@ class PostsController extends Controller
 
     public function store(Request $request){
         $post = new Post();
-        $post->title = $request->name;
+        $post->title = $request->title;
         $post->description = $request->description;
         $post->user_id = $request->user_id;
         $post->save();

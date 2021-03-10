@@ -80,7 +80,7 @@ const PostEdit = (props) => {
                             <Form.Label>Title</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="Enter Project Name"
+                                placeholder="Enter Post Title"
                                 value={post.name}
                                 name="name"
                                 onChange={(e) => changeInput(e)}

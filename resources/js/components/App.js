@@ -15,7 +15,7 @@ import Login from "./pages/auth/Login";
 import { checkIfAuthenticated } from "../services/AuthService";
 import AuthenticatedRoutes from "./AuthenticatedRoutes";
 
-import PostCreate from "./pages/posts/PostCreate";
+import PostCreate from "./pages/posts/PostCreate.js";
 import PostEdit from "./pages/posts/PostEdit";
 import PostView from "./pages/posts/PostView";
 
@@ -56,17 +56,22 @@ const App = () => {
                                 component={PostView}
                                 exact={true}
                             />
-                            <Route
-                                path={`${PUBLIC_URL}post/edit/:id`}
-                                component={PostEdit}
-                                exact={true}
-                            />
                             <AuthenticatedRoutes
                                 authed={info.isLoggedIn}
                                 path={`${PUBLIC_URL}post/create`}
                                 component={PostCreate}
                                 exact={true}
                             />
+                            <Route
+                                path={`${PUBLIC_URL}post/edit/:id`}
+                                component={PostEdit}
+                                exact={true}
+                            />
+                            {/* <AuthenticatedRoutes
+                                authed={info.isLoggedIn}
+                                path={`${PUBLIC_URL}post/create`}
+                                component={PostCreate}
+                            /> */}
                             {/* <AuthenticatedRoutes
                                 authed={info.isLoggedIn}
                                 path={`${PUBLIC_URL}posts`}

@@ -2198,7 +2198,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_auth_Login__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/auth/Login */ "./resources/js/components/pages/auth/Login.js");
 /* harmony import */ var _services_AuthService__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/AuthService */ "./resources/js/services/AuthService.js");
 /* harmony import */ var _AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./AuthenticatedRoutes */ "./resources/js/components/AuthenticatedRoutes.js");
-/* harmony import */ var _pages_posts_PostCreate__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/posts/PostCreate */ "./resources/js/components/pages/posts/PostCreate.js");
+/* harmony import */ var _pages_posts_PostCreate_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/posts/PostCreate.js */ "./resources/js/components/pages/posts/PostCreate.js");
 /* harmony import */ var _pages_posts_PostEdit__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/posts/PostEdit */ "./resources/js/components/pages/posts/PostEdit.js");
 /* harmony import */ var _pages_posts_PostView__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/posts/PostView */ "./resources/js/components/pages/posts/PostView.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -2272,14 +2272,14 @@ var App = function App() {
               path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "posts/:id"),
               component: _pages_posts_PostView__WEBPACK_IMPORTED_MODULE_14__.default,
               exact: true
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
-              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "post/edit/:id"),
-              component: _pages_posts_PostEdit__WEBPACK_IMPORTED_MODULE_13__.default,
-              exact: true
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_11__.default, {
               authed: info.isLoggedIn,
               path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "post/create"),
-              component: _pages_posts_PostCreate__WEBPACK_IMPORTED_MODULE_12__.default,
+              component: _pages_posts_PostCreate_js__WEBPACK_IMPORTED_MODULE_12__.default,
+              exact: true
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "post/edit/:id"),
+              component: _pages_posts_PostEdit__WEBPACK_IMPORTED_MODULE_13__.default,
               exact: true
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
               path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "register"),
@@ -3537,7 +3537,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var PostCreate = function PostCreate(props) {
+function PostCreate(props) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
     isLoading: false,
     name: "",
@@ -3545,11 +3545,12 @@ var PostCreate = function PostCreate(props) {
     errors: {}
   }),
       _useState2 = _slicedToArray(_useState, 2),
-      post = _useState2[0],
-      setPost = _useState2[1];
+      state = _useState2[0],
+      setState = _useState2[1];
 
   var changeInput = function changeInput(e) {
-    setPost(_objectSpread(_objectSpread({}, post), {}, _defineProperty({}, e.target.name, e.target.value)));
+    e.preventDefault();
+    setState(_objectSpread(_objectSpread({}, state), {}, _defineProperty({}, e.target.name, e.target.value)));
   };
 
   var submitForm = /*#__PURE__*/function () {
@@ -3561,12 +3562,12 @@ var PostCreate = function PostCreate(props) {
             case 0:
               e.preventDefault();
               history = props.history;
-              setPost(_objectSpread(_objectSpread({}, post), {}, {
+              setState(_objectSpread(_objectSpread({}, state), {}, {
                 isLoading: true
               }));
               postBody = {
-                name: post.name,
-                description: post.description
+                title: state.name,
+                description: state.description
               };
               _context.next = 6;
               return (0,_services_PostService__WEBPACK_IMPORTED_MODULE_3__.storeNewPost)(postBody);
@@ -3576,7 +3577,7 @@ var PostCreate = function PostCreate(props) {
 
               //console.log(response);
               if (response.success) {
-                setPost({
+                setState({
                   name: "",
                   description: "",
                   isLoading: false
@@ -3584,7 +3585,7 @@ var PostCreate = function PostCreate(props) {
                 history.push("".concat(_constants__WEBPACK_IMPORTED_MODULE_2__.PUBLIC_URL));
               } else {
                 console.log("response.errors", response.errors);
-                setPost(_objectSpread(_objectSpread({}, post), {}, {
+                setState(_objectSpread(_objectSpread({}, state), {}, {
                   errors: response.errors,
                   isLoading: false
                 }));
@@ -3609,7 +3610,7 @@ var PostCreate = function PostCreate(props) {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "float-left",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
-          children: "New Post"
+          children: "Create Post"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "clearfix"
@@ -3626,16 +3627,16 @@ var PostCreate = function PostCreate(props) {
               children: "Title"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default.Control, {
               type: "text",
-              placeholder: "Enter Project Name",
-              value: "",
+              placeholder: "Enter Post Title",
               name: "name",
+              value: state.name,
               onChange: function onChange(e) {
                 return changeInput(e);
               }
             })]
-          }), post.errors && post.errors.name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          }), state.errors && state.errors.name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
             className: "text-danger",
-            children: post.errors.name[0]
+            children: state.errors.name[0]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default.Group, {
             controlId: "description",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default.Label, {
@@ -3646,15 +3647,15 @@ var PostCreate = function PostCreate(props) {
               as: "textarea",
               rows: "5",
               name: "description",
-              value: "",
+              value: state.description,
               onChange: function onChange(e) {
                 return changeInput(e);
               }
             })]
-          }), post.errors && post.errors.description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          }), state.errors && state.errors.description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
             className: "text-danger",
-            children: post.errors.description[0]
-          }), post.isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default, {
+            children: state.errors.description[0]
+          }), state.isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default, {
             variant: "primary",
             type: "button",
             disabled: true,
@@ -3666,7 +3667,7 @@ var PostCreate = function PostCreate(props) {
                 children: "Loading..."
               })
             }), " ", "Saving..."]
-          }), !post.isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default, {
+          }), !state.isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default, {
             variant: "primary",
             type: "submit",
             children: "Submit"
@@ -3675,7 +3676,7 @@ var PostCreate = function PostCreate(props) {
       })
     })]
   });
-};
+}
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_9__.withRouter)(PostCreate));
 
@@ -3865,7 +3866,7 @@ var PostEdit = function PostEdit(props) {
               children: "Title"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default.Control, {
               type: "text",
-              placeholder: "Enter Project Name",
+              placeholder: "Enter Post Title",
               value: post.name,
               name: "name",
               onChange: function onChange(e) {
@@ -3934,8 +3935,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Spinner.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Button.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Spinner.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../constants */ "./resources/js/constants.js");
 /* harmony import */ var _services_PostService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/PostService */ "./resources/js/services/PostService.js");
 /* harmony import */ var _services_AuthService__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/AuthService */ "./resources/js/services/AuthService.js");
@@ -3978,6 +3980,7 @@ var PostView = function PostView(props) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
     userId: "",
     postId: "",
+    postUserId: "",
     postDetails: {},
     commentList: [],
     isLoading: false
@@ -4006,18 +4009,19 @@ var PostView = function PostView(props) {
 
             case 4:
               res = _context.sent;
-              //console.log(res);
               isAuthenticated = (0,_services_AuthService__WEBPACK_IMPORTED_MODULE_4__.checkIfAuthenticated)();
               userId = "";
 
               if (isAuthenticated) {
                 userId = isAuthenticated.id;
-              } //console.log("Postview: " + res.data.msg);
+              } //console.log(userId);
+              //console.log(res.data.user_id);
 
 
               setPost(_objectSpread(_objectSpread({}, post), {}, {
                 userId: userId,
                 postId: postId,
+                postUserId: res.data.post.user_id,
                 commentList: res.data.comments,
                 postDetails: res.data.post,
                 isLoading: false
@@ -4036,6 +4040,40 @@ var PostView = function PostView(props) {
     };
   }();
 
+  var clickDeletePost = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(id) {
+      var response, history;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return (0,_services_PostService__WEBPACK_IMPORTED_MODULE_3__.deletePost)(id);
+
+            case 2:
+              response = _context2.sent;
+
+              //console.log(response);
+              if (response.success) {
+                history = props.history;
+                history.push("".concat(_constants__WEBPACK_IMPORTED_MODULE_2__.PUBLIC_URL));
+              } else {
+                alert("Sorry, Something is wrong.");
+              }
+
+            case 4:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function clickDeletePost(_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "header-part",
@@ -4046,19 +4084,30 @@ var PostView = function PostView(props) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           children: post.postDetails.description
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "float-right",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-          to: "".concat(_constants__WEBPACK_IMPORTED_MODULE_2__.PUBLIC_URL, "post/edit/").concat(post.postId),
-          className: "btn btn-danger",
-          children: "Edit"
-        })
+      }), post.userId == post.postUserId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "float-right",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default, {
+            variant: "danger",
+            onClick: function onClick() {
+              return clickDeletePost(post.postId);
+            },
+            children: "Delete"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "float-right mr-2",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+            to: "".concat(_constants__WEBPACK_IMPORTED_MODULE_2__.PUBLIC_URL, "post/edit/").concat(post.postId),
+            className: "btn btn-info",
+            children: "Edit"
+          })
+        })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "clearfix"
       })]
     }), post.isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "text-center mt-5",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default, {
         animation: "border",
         role: "status",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
@@ -4381,15 +4430,14 @@ var deletePost = /*#__PURE__*/function () {
       while (1) {
         switch (_context6.prev = _context6.next) {
           case 0:
-            console.log("id", id);
-            _context6.next = 3;
+            _context6.next = 2;
             return axios__WEBPACK_IMPORTED_MODULE_1___default().delete("http://127.0.0.1:8000/api/posts/".concat(id));
 
-          case 3:
+          case 2:
             res = _context6.sent;
             return _context6.abrupt("return", res.data);
 
-          case 5:
+          case 4:
           case "end":
             return _context6.stop();
         }

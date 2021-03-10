@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Button, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { PUBLIC_URL } from "../../../constants";
-import { showPost } from "../../../services/PostService";
+import { showPost, deletePost } from "../../../services/PostService";
 import { checkIfAuthenticated } from "../../../services/AuthService";
 
 const PostView = (props) => {
     const [post, setPost] = useState({
         userId: "",
         postId: "",
+        postUserId: "",
         postDetails: {},
         commentList: [],
         isLoading: false,
@@ -22,21 +23,33 @@ const PostView = (props) => {
         setPost({ ...post, isLoading: true });
         const postId = props.match.params.id;
         const res = await showPost(postId);
-        //console.log(res);
         const isAuthenticated = checkIfAuthenticated();
         let userId = "";
         if (isAuthenticated) {
             userId = isAuthenticated.id;
         }
-        //console.log("Postview: " + res.data.msg);
+        //console.log(userId);
+        //console.log(res.data.user_id);
         setPost({
             ...post,
             userId: userId,
             postId: postId,
+            postUserId: res.data.post.user_id,
             commentList: res.data.comments,
             postDetails: res.data.post,
             isLoading: false,
         });
+    };
+
+    const clickDeletePost = async (id) => {
+        const response = await deletePost(id);
+        //console.log(response);
+        if (response.success) {
+            const { history } = props;
+            history.push(`${PUBLIC_URL}`);
+        } else {
+            alert("Sorry, Something is wrong.");
+        }
     };
 
     return (
@@ -46,23 +59,28 @@ const PostView = (props) => {
                     <h2>{post.postDetails.title}</h2>
                     <div>{post.postDetails.description}</div>
                 </div>
-                <div className="float-right">
-                    <Link
-                        to={`${PUBLIC_URL}post/edit/${post.postId}`}
-                        className="btn btn-danger"
-                    >
-                        Edit
-                    </Link>
-                </div>
+                {post.userId == post.postUserId && (
+                    <>
+                        <div className="float-right">
+                            <Button
+                                variant="danger"
+                                onClick={() => clickDeletePost(post.postId)}
+                            >
+                                Delete
+                            </Button>
+                        </div>
+                        <div className="float-right mr-2">
+                            <Link
+                                to={`${PUBLIC_URL}post/edit/${post.postId}`}
+                                className="btn btn-info"
+                            >
+                                Edit
+                            </Link>
+                        </div>
+                    </>
+                )}
                 <div className="clearfix"></div>
             </div>
-
-            {/* {post.toggleAddTask && (
-                <TaskCreate
-                    project_id={props.match.params.id}
-                    onCompleteTaskCreate={onCompleteTaskCreate()}
-                />
-            )} */}
 
             {post.isLoading && (
                 <div className="text-center mt-5">
@@ -71,12 +89,6 @@ const PostView = (props) => {
                     </Spinner>
                 </div>
             )}
-
-            {/* <TaskList
-                taskList={post.searchTaskList}
-                isDetailsView={true}
-                onEditTask={onEditTask()}
-            /> */}
         </>
     );
 };
