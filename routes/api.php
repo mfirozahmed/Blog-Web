@@ -28,6 +28,6 @@ Route::post('/auth/register', 'Api\AuthController@register');
 Route::get('/posts/user/{id}', 'Api\PostsController@myPost');
 Route::apiResource('posts', 'Api\PostsController');
 Route::apiResource('comments', 'Api\CommentsController');
-Route::middleware('auth:api')->apiResource('profiles', 'Api\ProfilesController');
+Route::apiResource('profiles', 'Api\ProfilesController');
 
 //Route::middleware('auth:api')->get('/profiles', 'Api\ProfilesController@index');

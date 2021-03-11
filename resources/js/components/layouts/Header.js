@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { Container, NavDropdown, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { PUBLIC_URL } from "../../constants";
@@ -30,7 +30,9 @@ const Header = (props) => {
                                         My Blogs
                                     </Nav.Item>
                                 </Link>
-                                <Link to={`${PUBLIC_URL}profile`}>
+                                <Link
+                                    to={`${PUBLIC_URL}profile/${props.authData.user.id}`}
+                                >
                                     <Nav.Item className="text-white mr-2 ">
                                         My Profile
                                     </Nav.Item>

@@ -5,19 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Profile;
+use App\Models\User;
 
 class ProfilesController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-    
     /**
      * Display a listing of the resource.
      *
@@ -63,12 +54,19 @@ class ProfilesController extends Controller
      */
     public function show($id)
     {
-        $profile = Profile::find($id);
+        $user = User::find($id);
+        $profile = Profile::where('user_id', $id)->first();
+        $data = array (
+            'username' => $user->username,
+            'email' => $user->email,
+            'name' => $profile->name,
+            'website' => $profile->website
+        );
 
         return response()->json([
             'success' => true,
             'msg' => 'The specified profile',
-            'data' => $profile
+            'data' => $data
         ]);
     }
 
@@ -81,7 +79,7 @@ class ProfilesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $profile = Profile::find($id);
+        $profile = Profile::where('user_id', $id)->first();
         $profile->name = $request->name;
         $profile->website = $request->website;
         $profile->save();

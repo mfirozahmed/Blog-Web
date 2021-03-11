@@ -2185,11 +2185,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _layouts_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./layouts/Header */ "./resources/js/components/layouts/Header.js");
 /* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./layouts/Footer */ "./resources/js/components/layouts/Footer.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Container.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Container.js");
 /* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/Home */ "./resources/js/components/pages/Home.js");
 /* harmony import */ var _pages_MyBlogs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/MyBlogs */ "./resources/js/components/pages/MyBlogs.js");
 /* harmony import */ var _pages_User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/User */ "./resources/js/components/pages/User.js");
@@ -2198,10 +2198,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_auth_Login__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/auth/Login */ "./resources/js/components/pages/auth/Login.js");
 /* harmony import */ var _services_AuthService__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/AuthService */ "./resources/js/services/AuthService.js");
 /* harmony import */ var _AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./AuthenticatedRoutes */ "./resources/js/components/AuthenticatedRoutes.js");
-/* harmony import */ var _pages_posts_PostCreate_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/posts/PostCreate.js */ "./resources/js/components/pages/posts/PostCreate.js");
+/* harmony import */ var _pages_posts_PostCreate__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/posts/PostCreate */ "./resources/js/components/pages/posts/PostCreate.js");
 /* harmony import */ var _pages_posts_PostEdit__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/posts/PostEdit */ "./resources/js/components/pages/posts/PostEdit.js");
 /* harmony import */ var _pages_posts_PostView__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/posts/PostView */ "./resources/js/components/pages/posts/PostView.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _pages_profile_ProfileView__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/profile/ProfileView */ "./resources/js/components/pages/profile/ProfileView.js");
+/* harmony import */ var _pages_profile_ProfileEdit__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pages/profile/ProfileEdit */ "./resources/js/components/pages/profile/ProfileEdit.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2235,6 +2237,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
 var App = function App() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     user: {},
@@ -2252,49 +2256,57 @@ var App = function App() {
       });
     }
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.BrowserRouter, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_layouts_Header__WEBPACK_IMPORTED_MODULE_2__.default, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.BrowserRouter, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_layouts_Header__WEBPACK_IMPORTED_MODULE_2__.default, {
         authData: info
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_17__.default, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_19__.default, {
           className: "p-4",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Switch, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Switch, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
               path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "users"),
               exact: true,
               component: _pages_User__WEBPACK_IMPORTED_MODULE_6__.default
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
               path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "my-blogs"),
               exact: true,
               component: _pages_MyBlogs__WEBPACK_IMPORTED_MODULE_5__.default
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
               path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "posts/:id"),
               component: _pages_posts_PostView__WEBPACK_IMPORTED_MODULE_14__.default,
               exact: true
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_11__.default, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_11__.default, {
               authed: info.isLoggedIn,
               path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "post/create"),
-              component: _pages_posts_PostCreate_js__WEBPACK_IMPORTED_MODULE_12__.default,
+              component: _pages_posts_PostCreate__WEBPACK_IMPORTED_MODULE_12__.default,
               exact: true
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
               path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "post/edit/:id"),
               component: _pages_posts_PostEdit__WEBPACK_IMPORTED_MODULE_13__.default,
               exact: true
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "profile/:id"),
+              component: _pages_profile_ProfileView__WEBPACK_IMPORTED_MODULE_15__.default,
+              exact: true
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "profile/edit/:id"),
+              component: _pages_profile_ProfileEdit__WEBPACK_IMPORTED_MODULE_16__.default,
+              exact: true
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
               path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "register"),
               exact: true,
               component: _pages_auth_Register__WEBPACK_IMPORTED_MODULE_8__.default
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
               path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "login"),
               exact: true,
               component: _pages_auth_Login__WEBPACK_IMPORTED_MODULE_9__.default
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
               path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL),
               exact: true,
               component: _pages_Home__WEBPACK_IMPORTED_MODULE_4__.default
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_layouts_Footer__WEBPACK_IMPORTED_MODULE_3__.default, {})]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_layouts_Footer__WEBPACK_IMPORTED_MODULE_3__.default, {})]
         })
       })]
     })
@@ -2304,7 +2316,7 @@ var App = function App() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
 if (document.getElementById("app")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(App, {}), document.getElementById("app"));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(App, {}), document.getElementById("app"));
 }
 
 /***/ }),
@@ -2456,7 +2468,7 @@ var Header = function Header(props) {
                 children: "My Blogs"
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
-              to: "".concat(_constants__WEBPACK_IMPORTED_MODULE_1__.PUBLIC_URL, "profile"),
+              to: "".concat(_constants__WEBPACK_IMPORTED_MODULE_1__.PUBLIC_URL, "profile/").concat(props.authData.user.id),
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default.Item, {
                 className: "text-white mr-2 ",
                 children: "My Profile"
@@ -4123,6 +4135,542 @@ var PostView = function PostView(props) {
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/profile/ProfileEdit.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/pages/profile/ProfileEdit.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Card.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Form.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Button.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Spinner.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../constants */ "./resources/js/constants.js");
+/* harmony import */ var _services_ProfileService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/ProfileService */ "./resources/js/services/ProfileService.js");
+/* harmony import */ var _services_AuthService__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/AuthService */ "./resources/js/services/AuthService.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+
+
+function ProfileEdit(props) {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+    userId: "",
+    name: "",
+    website: "",
+    email: "",
+    isLoading: false
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      profile = _useState2[0],
+      setProfile = _useState2[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    getProfileDetails();
+  }, []);
+
+  var getProfileDetails = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var userId, isAuthenticated, history, res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              setProfile(_objectSpread(_objectSpread({}, profile), {}, {
+                isLoading: true
+              }));
+              userId = props.match.params.id;
+              isAuthenticated = (0,_services_AuthService__WEBPACK_IMPORTED_MODULE_4__.checkIfAuthenticated)();
+
+              if (isAuthenticated) {
+                if (isAuthenticated.id != userId) {
+                  history = props.history;
+                  history.push("".concat(_constants__WEBPACK_IMPORTED_MODULE_2__.PUBLIC_URL, "profile/").concat(isAuthenticated.id));
+                }
+              }
+
+              _context.next = 6;
+              return (0,_services_ProfileService__WEBPACK_IMPORTED_MODULE_3__.getProfile)(userId);
+
+            case 6:
+              res = _context.sent;
+              //console.log(res.data);
+              setProfile(_objectSpread(_objectSpread({}, profile), {}, {
+                userId: userId,
+                name: res.data.name,
+                website: res.data.website,
+                email: res.data.email,
+                username: res.data.username,
+                isLoading: false
+              }));
+
+            case 8:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function getProfileDetails() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  var changeInput = function changeInput(e) {
+    setProfile(_objectSpread(_objectSpread({}, profile), {}, _defineProperty({}, e.target.name, e.target.value)));
+  };
+
+  var submitForm = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(e) {
+      var history, profileBody, response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              e.preventDefault();
+              history = props.history;
+              setProfile(_objectSpread(_objectSpread({}, profile), {}, {
+                isLoading: true
+              }));
+              profileBody = {
+                name: profile.name,
+                website: profile.website
+              };
+              _context2.next = 6;
+              return (0,_services_ProfileService__WEBPACK_IMPORTED_MODULE_3__.updateProfile)(profile.userId, profileBody);
+
+            case 6:
+              response = _context2.sent;
+
+              //console.log(response);
+              if (response.success) {
+                setProfile(_objectSpread(_objectSpread({}, profile), {}, {
+                  userId: "",
+                  name: "",
+                  website: "",
+                  email: "",
+                  isLoading: false
+                }));
+                history.push("".concat(_constants__WEBPACK_IMPORTED_MODULE_2__.PUBLIC_URL, "profile/").concat(profile.userId));
+              } else {
+                setProfile(_objectSpread(_objectSpread({}, profile), {}, {
+                  errors: response.errors,
+                  isLoading: false
+                }));
+              }
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function submitForm(_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      className: "header-part",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "float-left",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
+          children: "Edit Profile"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "clearfix"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default.Body, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default, {
+          onSubmit: function onSubmit(e) {
+            return submitForm(e);
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Group, {
+            controlId: "name",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              className: "input-group mb-3",
+              style: divStyle,
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                className: "input-group-prepend",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                  className: "input-group-text",
+                  style: spanStyleA,
+                  children: "Name"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Control, {
+                  className: "input-group mb-3",
+                  style: spanStyleb,
+                  type: "text",
+                  placeholder: "Enter Your Name",
+                  value: profile.name,
+                  name: "name",
+                  onChange: function onChange(e) {
+                    return changeInput(e);
+                  }
+                })]
+              })
+            })
+          }), profile.errors && profile.errors.name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+            className: "text-danger",
+            children: profile.errors.name[0]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            className: "input-group mb-3",
+            style: divStyle,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              className: "input-group-prepend",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                className: "input-group-text",
+                style: spanStyleA,
+                children: "Username"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                className: "input-group-text",
+                style: spanStyleb,
+                children: profile.username
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            className: "input-group mb-3",
+            style: divStyle,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              className: "input-group-prepend",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                className: "input-group-text",
+                style: spanStyleA,
+                children: "Email"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                className: "input-group-text",
+                style: spanStyleb,
+                children: profile.email
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Group, {
+            controlId: "website",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              className: "input-group mb-3",
+              style: divStyle,
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                className: "input-group-prepend",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                  className: "input-group-text",
+                  style: spanStyleA,
+                  children: "Website"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Control, {
+                  className: "input-group mb-3",
+                  style: spanStyleb,
+                  type: "text",
+                  placeholder: "Enter Your Website",
+                  value: profile.website,
+                  name: "website",
+                  onChange: function onChange(e) {
+                    return changeInput(e);
+                  }
+                })]
+              })
+            })
+          }), profile.errors && profile.errors.website && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+            className: "text-danger",
+            children: profile.errors.website[0]
+          }), profile.isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default, {
+            variant: "primary",
+            type: "button",
+            disabled: true,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__.default, {
+              animation: "border",
+              role: "status",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                className: "sr-only",
+                children: "Loading..."
+              })
+            }), " ", "Saving..."]
+          }), !profile.isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default, {
+            variant: "primary",
+            type: "submit",
+            children: "Submit"
+          })]
+        })
+      })
+    })]
+  });
+}
+
+var divStyle = {
+  width: "700px"
+};
+var spanStyleA = {
+  width: "200px"
+};
+var spanStyleb = {
+  width: "500px"
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProfileEdit);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/profile/ProfileView.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/pages/profile/ProfileView.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../constants */ "./resources/js/constants.js");
+/* harmony import */ var _services_ProfileService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/ProfileService */ "./resources/js/services/ProfileService.js");
+/* harmony import */ var _services_AuthService__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/AuthService */ "./resources/js/services/AuthService.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+
+
+function ProfileView(props) {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+    userId: "",
+    name: "",
+    website: "",
+    email: "",
+    isLoading: false
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      profile = _useState2[0],
+      setProfile = _useState2[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    getProfileDetails();
+  }, []);
+
+  var getProfileDetails = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var userId, isAuthenticated, res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              setProfile(_objectSpread(_objectSpread({}, profile), {}, {
+                isLoading: true
+              }));
+              userId = props.match.params.id;
+              console.log(userId);
+
+              if (userId == null) {
+                isAuthenticated = (0,_services_AuthService__WEBPACK_IMPORTED_MODULE_4__.checkIfAuthenticated)();
+
+                if (isAuthenticated) {
+                  userId = isAuthenticated.id;
+                }
+              }
+
+              console.log(userId);
+              _context.next = 7;
+              return (0,_services_ProfileService__WEBPACK_IMPORTED_MODULE_3__.getProfile)(userId);
+
+            case 7:
+              res = _context.sent;
+              //console.log(res.data);
+              setProfile(_objectSpread(_objectSpread({}, profile), {}, {
+                userId: userId,
+                name: res.data.name,
+                website: res.data.website,
+                email: res.data.email,
+                username: res.data.username,
+                isLoading: false
+              }));
+
+            case 9:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function getProfileDetails() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      className: "header-part",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "float-left",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
+          children: "Profile"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "clearfix"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      className: "card-body",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        className: "row",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "input-group mb-3",
+          style: divStyle,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "input-group-prepend",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+              className: "input-group-text",
+              style: spanStyleA,
+              children: "Name"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+              className: "input-group-text",
+              style: spanStyleb,
+              children: profile.name
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "input-group mb-3",
+          style: divStyle,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "input-group-prepend",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+              className: "input-group-text",
+              style: spanStyleA,
+              children: "Username"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+              className: "input-group-text",
+              style: spanStyleb,
+              children: profile.username
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "input-group mb-3",
+          style: divStyle,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "input-group-prepend",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+              className: "input-group-text",
+              style: spanStyleA,
+              children: "Email"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+              className: "input-group-text",
+              style: spanStyleb,
+              children: profile.email
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "input-group mb-3",
+          style: divStyle,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "input-group-prepend",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+              className: "input-group-text",
+              style: spanStyleA,
+              children: "Website"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+              className: "input-group-text",
+              style: spanStyleb,
+              children: profile.website
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "input-group mb-3",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            className: "input-group-prepend",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+              to: "".concat(_constants__WEBPACK_IMPORTED_MODULE_2__.PUBLIC_URL, "profile/edit/").concat(profile.userId),
+              className: "btn btn-info",
+              children: "Update"
+            })
+          })
+        })]
+      })
+    })]
+  });
+}
+
+var divStyle = {
+  width: "700px"
+};
+var spanStyleA = {
+  width: "200px"
+};
+var spanStyleb = {
+  width: "500px"
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProfileView);
+
+/***/ }),
+
 /***/ "./resources/js/constants.js":
 /*!***********************************!*\
   !*** ./resources/js/constants.js ***!
@@ -4447,6 +4995,111 @@ var deletePost = /*#__PURE__*/function () {
 
   return function deletePost(_x5) {
     return _ref6.apply(this, arguments);
+  };
+}();
+
+/***/ }),
+
+/***/ "./resources/js/services/ProfileService.js":
+/*!*************************************************!*\
+  !*** ./resources/js/services/ProfileService.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getProfiles": () => (/* binding */ getProfiles),
+/* harmony export */   "getProfile": () => (/* binding */ getProfile),
+/* harmony export */   "updateProfile": () => (/* binding */ updateProfile)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var getProfiles = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+    var res;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/profiles");
+
+          case 2:
+            res = _context.sent;
+            return _context.abrupt("return", res.data);
+
+          case 4:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function getProfiles() {
+    return _ref.apply(this, arguments);
+  };
+}();
+var getProfile = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(id) {
+    var res;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/profiles/".concat(id));
+
+          case 2:
+            res = _context2.sent;
+            return _context2.abrupt("return", res.data);
+
+          case 4:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+
+  return function getProfile(_x) {
+    return _ref2.apply(this, arguments);
+  };
+}();
+var updateProfile = /*#__PURE__*/function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(id, data) {
+    var res;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            _context3.next = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().put("http://127.0.0.1:8000/api/profiles/".concat(id), data);
+
+          case 2:
+            res = _context3.sent;
+            return _context3.abrupt("return", res.data);
+
+          case 4:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3);
+  }));
+
+  return function updateProfile(_x2, _x3) {
+    return _ref3.apply(this, arguments);
   };
 }();
 

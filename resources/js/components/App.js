@@ -15,9 +15,12 @@ import Login from "./pages/auth/Login";
 import { checkIfAuthenticated } from "../services/AuthService";
 import AuthenticatedRoutes from "./AuthenticatedRoutes";
 
-import PostCreate from "./pages/posts/PostCreate.js";
+import PostCreate from "./pages/posts/PostCreate";
 import PostEdit from "./pages/posts/PostEdit";
 import PostView from "./pages/posts/PostView";
+
+import ProfileView from "./pages/profile/ProfileView";
+import ProfileEdit from "./pages/profile/ProfileEdit";
 
 const App = () => {
     const [info, setInfo] = useState({
@@ -67,16 +70,16 @@ const App = () => {
                                 component={PostEdit}
                                 exact={true}
                             />
-                            {/* <AuthenticatedRoutes
-                                authed={info.isLoggedIn}
-                                path={`${PUBLIC_URL}post/create`}
-                                component={PostCreate}
-                            /> */}
-                            {/* <AuthenticatedRoutes
-                                authed={info.isLoggedIn}
-                                path={`${PUBLIC_URL}posts`}
-                                component={PostList}
-                            /> */}
+                            <Route
+                                path={`${PUBLIC_URL}profile/:id`}
+                                component={ProfileView}
+                                exact={true}
+                            />
+                            <Route
+                                path={`${PUBLIC_URL}profile/edit/:id`}
+                                component={ProfileEdit}
+                                exact={true}
+                            />
                             <Route
                                 path={`${PUBLIC_URL}register`}
                                 exact={true}
