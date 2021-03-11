@@ -55,7 +55,7 @@ const MyBlog = () => {
                         to={`${PUBLIC_URL}posts/create`}
                         className="btn btn-info"
                     >
-                        + Create New
+                        Create New
                     </Link>
                 </div>
                 <div className="clearfix"></div>
@@ -76,19 +76,11 @@ const MyBlog = () => {
 
             {post.searchPostList.map((eachPost, index) => (
                 <Card key={index} className="mt-3">
-                    <Link to={`${PUBLIC_URL}posts/view/${eachPost.id}`}>
+                    <Link to={`${PUBLIC_URL}posts/${eachPost.id}`}>
                         <Card.Header>{eachPost.title}</Card.Header>
                     </Link>
                     <Card.Body>
                         <Card.Text>{eachPost.description}</Card.Text>
-
-                        <Button
-                            variant="danger"
-                            className="mr-2"
-                            onClick={() => deletePost(post.id)}
-                        >
-                            Delete
-                        </Button>
                     </Card.Body>
                 </Card>
             ))}

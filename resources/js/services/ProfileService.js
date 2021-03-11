@@ -1,7 +1,7 @@
 import Axios from "axios";
 
 export const getProfiles = async () => {
-    const res = await Axios.get("http://127.0.0.1:8000/api/profiles");
+    const res = await Axios.get(`http://127.0.0.1:8000/api/profiles`);
     return res.data;
 };
 

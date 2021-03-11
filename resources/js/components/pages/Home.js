@@ -42,7 +42,7 @@ const Home = () => {
                         to={`${PUBLIC_URL}post/create`}
                         className="btn btn-info"
                     >
-                        Create
+                        Create New
                     </Link>
                 </div>
                 <div className="clearfix"></div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import CommentList from "../comments/CommentList";
 import { PUBLIC_URL } from "../../../constants";
 import { showPost, deletePost } from "../../../services/PostService";
 import { checkIfAuthenticated } from "../../../services/AuthService";
@@ -29,7 +30,7 @@ const PostView = (props) => {
             userId = isAuthenticated.id;
         }
         //console.log(userId);
-        //console.log(res.data.user_id);
+        console.log(res.data);
         setPost({
             ...post,
             userId: userId,
@@ -56,8 +57,8 @@ const PostView = (props) => {
         <>
             <div className="header-part">
                 <div className="float-left">
-                    <h2>{post.postDetails.title}</h2>
-                    <div>{post.postDetails.description}</div>
+                    <h1>{post.postDetails.title}</h1>
+                    <h4>{post.postDetails.description}</h4>
                 </div>
                 {post.userId == post.postUserId && (
                     <>
@@ -89,6 +90,14 @@ const PostView = (props) => {
                     </Spinner>
                 </div>
             )}
+
+            <CommentList
+                commentList={post.commentList}
+                history={props.history}
+                match={props.match}
+                // isDetailsView={true}
+                //onEditTask={this.onEditTask}
+            />
         </>
     );
 };

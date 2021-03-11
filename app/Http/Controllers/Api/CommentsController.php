@@ -12,16 +12,6 @@ use App\Models\User;
 class CommentsController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-    
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -32,7 +22,7 @@ class CommentsController extends Controller
         $comment = new Comment();
         $comment->description = $request->description;
         $comment->user_id = $request->user_id;
-        $comment->project_id = $request->project_id;
+        $comment->post_id = $request->post_id;
         $comment->save();
 
         return response()->json([

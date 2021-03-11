@@ -14,15 +14,14 @@ class ProfilesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $id = $request->user()->id;
-        $profile = Profile::where('user_id', $id)->get();
+        $profiles = Profile::orderBy('created_at', 'desc')->get();
 
         return response()->json([
             'success' => true,
-            'msg' => "User's profile",
-            'data' => $profile
+            'msg' => 'All the profile',
+            'data' => $profiles
         ]);
     }
 

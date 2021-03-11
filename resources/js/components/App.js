@@ -8,7 +8,7 @@ import { Container } from "react-bootstrap";
 // Pages
 import Home from "./pages/Home";
 import MyBlogs from "./pages/MyBlogs";
-import Users from "./pages/User";
+import Users from "./pages/Users";
 import { PUBLIC_URL } from "../constants";
 import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";

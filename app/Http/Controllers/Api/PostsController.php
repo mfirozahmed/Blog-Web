@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Comment;
+use App\Models\Profile;
 use App\Models\Post;
 use App\Models\User;
 
@@ -37,8 +38,21 @@ class PostsController extends Controller
 
     public function show($id){
         $post = Post::find($id);
-        $comments = Comment::where('post_id', $id)->get();
+        $commentData = Comment::where('post_id', $id)->orderBy('created_at', 'desc')->get();
 
+        $comments = [];
+        foreach ($commentData as $comment) {
+            $user = Profile::where('user_id', $comment->user_id)->first();
+
+            $data = array(
+                'name' => $user->name,
+                'post_id' => $id,
+                'comment_id' => $comment->id,
+                'description' => $comment->description,
+            );
+
+            array_push($comments, $data);
+        }
         return response()->json([
             'success' => true,
             'msg' => 'Post Found',
