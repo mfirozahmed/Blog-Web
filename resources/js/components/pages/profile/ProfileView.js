@@ -12,6 +12,7 @@ function ProfileView(props) {
         website: "",
         email: "",
         isLoading: false,
+        authenticatedUserId: "",
     });
 
     useEffect(() => {
@@ -22,11 +23,12 @@ function ProfileView(props) {
         setProfile({ ...profile, isLoading: true });
         let userId = props.match.params.id;
         console.log(userId);
-        if (userId == null) {
-            const isAuthenticated = checkIfAuthenticated();
-            if (isAuthenticated) {
-                userId = isAuthenticated.id;
-            }
+        const isAuthenticated = checkIfAuthenticated();
+        if (isAuthenticated) {
+            setProfile({
+                ...profile,
+                authenticatedUserId: isAuthenticated.id,
+            });
         }
         console.log(userId);
         const res = await getProfile(userId);
@@ -121,16 +123,18 @@ function ProfileView(props) {
                         </div>
                     </div>
 
-                    <div className="input-group mb-3">
-                        <div className="input-group-prepend">
-                            <Link
-                                to={`${PUBLIC_URL}profile/edit/${profile.userId}`}
-                                className="btn btn-info"
-                            >
-                                Update
-                            </Link>
+                    {profile.userId == profile.authenticatedUserId && (
+                        <div className="input-group mb-3">
+                            <div className="input-group-prepend">
+                                <Link
+                                    to={`${PUBLIC_URL}profile/edit/${profile.userId}`}
+                                    className="btn btn-info"
+                                >
+                                    Update
+                                </Link>
+                            </div>
                         </div>
-                    </div>
+                    )}
                 </div>
             </div>
         </>

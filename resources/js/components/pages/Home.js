@@ -10,6 +10,8 @@ const Home = () => {
         isLoading: false,
     });
 
+    const [visible, setVisible] = useState(10);
+
     useEffect(() => {
         getPostLists();
     }, []);
@@ -29,6 +31,12 @@ const Home = () => {
                 isLoading: false,
             });
         }
+    };
+
+    const showMore = () => {
+        setVisible((prevValue) => {
+            prevValue + 1;
+        });
     };
 
     return (
@@ -61,7 +69,7 @@ const Home = () => {
                 </Alert>
             )}
 
-            {post.postList.map((eachPost, index) => (
+            {post.postList.slice(0, visible).map((eachPost, index) => (
                 <Card key={index} className="mt-3">
                     <Link to={`${PUBLIC_URL}posts/${eachPost.id}`}>
                         <Card.Header>{eachPost.title}</Card.Header>
@@ -71,6 +79,11 @@ const Home = () => {
                     </Card.Body>
                 </Card>
             ))}
+            <div className="text-center mt-3">
+                <Button onClick={() => showMore()} variant="primary">
+                    Load More
+                </Button>
+            </div>
         </>
     );
 };

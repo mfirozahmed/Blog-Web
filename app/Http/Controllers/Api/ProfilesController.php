@@ -16,34 +16,25 @@ class ProfilesController extends Controller
      */
     public function index()
     {
-        $profiles = Profile::orderBy('created_at', 'desc')->get();
-
+        $profiles = Profile::orderBy('name', 'asc')->get();
+        $customizedProfile = [];
+        foreach ($profiles as $profile) {
+            $user = User::find($profile->user_id);
+            $data = array(
+                'user_id' => $user->id,
+                'name' => $profile->name,
+                'username' => $user->username,
+                'email' => $user->email,
+                'website' => $profile->website
+            );
+            array_push($customizedProfile, $data);
+        }
         return response()->json([
             'success' => true,
             'msg' => 'All the profile',
-            'data' => $profiles
+            'data' => $customizedProfile
         ]);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    /* public function store(Request $request)
-    {
-        $profile = new Profile();
-        $profile->name = $request->name;
-        $profile->website = $request->website;
-        $profile->save();
-
-        return response()->json([            
-            'success' => true,
-            'msg' => 'Profile Added',
-            'data' => $profile,
-        ]);
-    } */
 
     /**
      * Display the specified resource.
@@ -98,6 +89,46 @@ class ProfilesController extends Controller
             'success' => true,
             'msg' => 'All the profile',
             'data' => $profiles
+        ]);
+    }
+
+    public function allProfilePage(Request $request) {
+
+        $column = $request->column;
+        $order = $request->order;
+        $customizedProfile = [];
+
+        if ($column == 'name' || $column == 'website'){
+            $profiles = Profile::orderBy($column, $order)->get();
+            foreach ($profiles as $profile) {
+                $user = User::find($profile->user_id);
+                $data = array(
+                    'user_id' => $user->id,
+                    'name' => $profile->name,
+                    'username' => $user->username,
+                    'email' => $user->email,
+                    'website' => $profile->website
+                );
+                array_push($customizedProfile, $data);
+            }
+        } else {
+            $users = User::orderBy($column, $order)->get();
+            foreach ($users as $user) {
+                $profile = Profile::where('user_id',$user->id)->first();
+                $data = array(
+                    'user_id' => $user->id,
+                    'name' => $profile->name,
+                    'username' => $user->username,
+                    'email' => $user->email,
+                    'website' => $profile->website
+                );
+                array_push($customizedProfile, $data);
+            }
+        }
+        return response()->json([
+            'success' => true,
+            'msg' => 'All the profile',
+            'data' => $customizedProfile
         ]);
     }
 }

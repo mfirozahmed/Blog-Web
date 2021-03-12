@@ -18,3 +18,11 @@ export const updateProfile = async (id, data) => {
     );
     return res.data;
 };
+
+export const customizedProfile = async (data) => {
+    const res = await Axios.post(
+        "http://127.0.0.1:8000/api/profiles/all",
+        data
+    );
+    return res.data;
+};

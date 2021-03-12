@@ -28,4 +28,5 @@ Route::post('/auth/register', 'Api\AuthController@register');
 Route::get('/posts/user/{id}', 'Api\PostsController@myPost');
 Route::apiResource('posts', 'Api\PostsController');
 Route::apiResource('comments', 'Api\CommentsController');
+Route::post('/profiles/all', 'Api\ProfilesController@allProfilePage');
 Route::apiResource('profiles', 'Api\ProfilesController');
