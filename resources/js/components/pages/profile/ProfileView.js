@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { Button, Spinner } from "react-bootstrap";
+import React, { useState, useEffect, createContext } from "react";
+import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { PUBLIC_URL } from "../../../constants";
 import { getProfile } from "../../../services/ProfileService";
+import { getUserPostList } from "../../../services/PostService";
 import { checkIfAuthenticated } from "../../../services/AuthService";
+import PostUser from "../posts/PostUser";
+
+const postsList = createContext();
 
 function ProfileView(props) {
     const [profile, setProfile] = useState({
@@ -11,6 +15,7 @@ function ProfileView(props) {
         name: "",
         website: "",
         email: "",
+        post: [],
         isLoading: false,
         authenticatedUserId: "",
     });
@@ -22,7 +27,6 @@ function ProfileView(props) {
     const getProfileDetails = async () => {
         setProfile({ ...profile, isLoading: true });
         let userId = props.match.params.id;
-        console.log(userId);
         const isAuthenticated = checkIfAuthenticated();
         if (isAuthenticated) {
             setProfile({
@@ -30,17 +34,17 @@ function ProfileView(props) {
                 authenticatedUserId: isAuthenticated.id,
             });
         }
-        console.log(userId);
-        const res = await getProfile(userId);
-
-        //console.log(res.data);
+        const res1 = await getProfile(userId);
+        const res2 = await getUserPostList(userId);
+        //console.log(userId);
         setProfile({
             ...profile,
             userId: userId,
-            name: res.data.name,
-            website: res.data.website,
-            email: res.data.email,
-            username: res.data.username,
+            name: res1.data.name,
+            website: res1.data.website,
+            email: res1.data.email,
+            username: res1.data.username,
+            post: res2.data,
             isLoading: false,
         });
     };
@@ -137,6 +141,10 @@ function ProfileView(props) {
                     )}
                 </div>
             </div>
+
+            <postsList.Provider value={profile.post}>
+                <PostUser />
+            </postsList.Provider>
         </>
     );
 }
@@ -151,4 +159,5 @@ const spanStyleb = {
     width: "500px",
 };
 
-export default ProfileView;
+export default withRouter(ProfileView);
+export { postsList };

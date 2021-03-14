@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { withRouter } from "react-router-dom";
-import { Card, Form, Button, Spinner } from "react-bootstrap";
+import { Card, Form, Button } from "react-bootstrap";
 import { PUBLIC_URL } from "../../../constants";
 import { storeNewComment } from "../../../services/CommentService";
 import { getProfile } from "../../../services/ProfileService";

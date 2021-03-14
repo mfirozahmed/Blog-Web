@@ -1,19 +1,8 @@
-import React, { useState, useEffect } from "react";
-import {
-    Card,
-    Button,
-    Badge,
-    Spinner,
-    Form,
-    InputGroup,
-    FormControl,
-    Alert,
-} from "react-bootstrap";
-import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import Axios from "axios";
+import React, { useState, useEffect, useContext } from "react";
+import { Card, Spinner, Alert } from "react-bootstrap";
+import { Link, withRouter } from "react-router-dom";
 import { PUBLIC_URL } from "../../constants";
-import { deletePost, getMyPostList } from "../../services/PostService";
+import { getMyPostList } from "../../services/PostService";
 
 const MyBlog = () => {
     const [post, setPost] = useState({
@@ -30,6 +19,7 @@ const MyBlog = () => {
         setPost({ ...post, isLoading: true });
         const response = await getMyPostList();
         console.log(response);
+
         if (response.success) {
             setPost({
                 ...post,
@@ -50,6 +40,7 @@ const MyBlog = () => {
                 <div className="float-left">
                     <h2>My Blogs</h2>
                 </div>
+
                 <div className="float-right">
                     <Link
                         to={`${PUBLIC_URL}posts/create`}
@@ -88,4 +79,4 @@ const MyBlog = () => {
     );
 };
 
-export default MyBlog;
+export default withRouter(MyBlog);
