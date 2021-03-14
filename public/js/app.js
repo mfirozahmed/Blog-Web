@@ -2268,7 +2268,8 @@ var App = function App() {
               path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "users"),
               exact: true,
               component: _pages_Users__WEBPACK_IMPORTED_MODULE_6__.default
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_11__.default, {
+              authed: info.isLoggedIn,
               path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "my-blogs"),
               exact: true,
               component: _pages_MyBlogs__WEBPACK_IMPORTED_MODULE_5__.default
@@ -2281,7 +2282,8 @@ var App = function App() {
               path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "post/create"),
               component: _pages_posts_PostCreate__WEBPACK_IMPORTED_MODULE_12__.default,
               exact: true
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_11__.default, {
+              authed: info.isLoggedIn,
               path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "post/edit/:id"),
               component: _pages_posts_PostEdit__WEBPACK_IMPORTED_MODULE_13__.default,
               exact: true
@@ -2289,7 +2291,8 @@ var App = function App() {
               path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "profile/:id"),
               component: _pages_profile_ProfileView__WEBPACK_IMPORTED_MODULE_15__.default,
               exact: true
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_11__.default, {
+              authed: info.isLoggedIn,
               path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "profile/edit/:id"),
               component: _pages_profile_ProfileEdit__WEBPACK_IMPORTED_MODULE_16__.default,
               exact: true
@@ -3828,14 +3831,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Card.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Form.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Button.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Card.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Form.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Button.js");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../constants */ "./resources/js/constants.js");
 /* harmony import */ var _services_CommentService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/CommentService */ "./resources/js/services/CommentService.js");
 /* harmony import */ var _services_ProfileService__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/ProfileService */ "./resources/js/services/ProfileService.js");
 /* harmony import */ var _services_AuthService__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/AuthService */ "./resources/js/services/AuthService.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _posts_PostView__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../posts/PostView */ "./resources/js/components/pages/posts/PostView.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -3870,9 +3875,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
 function CommentList(_ref) {
-  var commentList = _ref.commentList,
-      history = _ref.history,
+  var history = _ref.history,
       match = _ref.match;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
@@ -3885,6 +3891,7 @@ function CommentList(_ref) {
       setComment = _useState2[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    console.log(history, match);
     var isAuthenticated = (0,_services_AuthService__WEBPACK_IMPORTED_MODULE_5__.checkIfAuthenticated)();
 
     if (isAuthenticated) {
@@ -3893,6 +3900,7 @@ function CommentList(_ref) {
       }));
     }
   }, []);
+  var commentList = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_posts_PostView__WEBPACK_IMPORTED_MODULE_6__.commentsList);
 
   var changeInput = function changeInput(e) {
     setComment(_objectSpread(_objectSpread({}, comment), {}, _defineProperty({}, e.target.name, e.target.value)));
@@ -3963,16 +3971,16 @@ function CommentList(_ref) {
     };
   }();
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: [comment.user_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Body, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+    children: [comment.user_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Body, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__.default, {
           onSubmit: function onSubmit(e) {
             return submitForm(e);
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Group, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__.default.Group, {
             controlId: "description",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Control, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__.default.Control, {
               type: "text",
               placeholder: "Add Comment",
               name: "description",
@@ -3981,9 +3989,9 @@ function CommentList(_ref) {
                 return changeInput(e);
               }
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
             className: "float-right",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__.default, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__.default, {
               variant: "primary",
               type: "submit",
               children: "Add Comment"
@@ -3992,15 +4000,15 @@ function CommentList(_ref) {
         })
       })
     }), commentList.map(function (comment, index) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default, {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default, {
         className: "mt-1 mb-1",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Body, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Body, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
             className: "float-left",
             children: comment.name
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
             className: "clearfix"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Text, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Text, {
             children: comment.description
           })]
         })
@@ -4009,7 +4017,7 @@ function CommentList(_ref) {
   });
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CommentList);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_11__.withRouter)(CommentList));
 
 /***/ }),
 
@@ -4461,7 +4469,8 @@ var PostEdit = function PostEdit(props) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "commentsList": () => (/* binding */ commentsList)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
@@ -4469,6 +4478,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Button.js");
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Spinner.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _comments_CommentList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../comments/CommentList */ "./resources/js/components/pages/comments/CommentList.js");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../constants */ "./resources/js/constants.js");
 /* harmony import */ var _services_PostService__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/PostService */ "./resources/js/services/PostService.js");
@@ -4508,8 +4518,12 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+var commentsList = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_1__.createContext)();
 
-var PostView = function PostView(props) {
+var PostView = function PostView(_ref) {
+  var history = _ref.history,
+      match = _ref.match;
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
     userId: "",
     postId: "",
@@ -4527,7 +4541,7 @@ var PostView = function PostView(props) {
   }, []);
 
   var getPostDetails = /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
       var postId, res, isAuthenticated, userId;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
@@ -4536,7 +4550,7 @@ var PostView = function PostView(props) {
               setPost(_objectSpread(_objectSpread({}, post), {}, {
                 isLoading: true
               }));
-              postId = props.match.params.id;
+              postId = match.params.id;
               _context.next = 4;
               return (0,_services_PostService__WEBPACK_IMPORTED_MODULE_4__.showPost)(postId);
 
@@ -4569,13 +4583,13 @@ var PostView = function PostView(props) {
     }));
 
     return function getPostDetails() {
-      return _ref.apply(this, arguments);
+      return _ref2.apply(this, arguments);
     };
   }();
 
   var clickDeletePost = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(id) {
-      var response, history;
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(id) {
+      var response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
@@ -4588,7 +4602,6 @@ var PostView = function PostView(props) {
 
               //console.log(response);
               if (response.success) {
-                history = props.history;
                 history.push("".concat(_constants__WEBPACK_IMPORTED_MODULE_3__.PUBLIC_URL));
               } else {
                 alert("Sorry, Something is wrong.");
@@ -4603,7 +4616,7 @@ var PostView = function PostView(props) {
     }));
 
     return function clickDeletePost(_x) {
-      return _ref2.apply(this, arguments);
+      return _ref3.apply(this, arguments);
     };
   }();
 
@@ -4648,17 +4661,15 @@ var PostView = function PostView(props) {
           children: "Loading..."
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_comments_CommentList__WEBPACK_IMPORTED_MODULE_2__.default, {
-      commentList: post.commentList,
-      history: props.history,
-      match: props.match // isDetailsView={true}
-      //onEditTask={this.onEditTask}
-
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(commentsList.Provider, {
+      value: post.commentList,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_comments_CommentList__WEBPACK_IMPORTED_MODULE_2__.default, {})
     })]
   });
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PostView);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_10__.withRouter)(PostView));
+
 
 /***/ }),
 

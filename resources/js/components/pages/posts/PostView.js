@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import { Button, Spinner } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import CommentList from "../comments/CommentList";
 import { PUBLIC_URL } from "../../../constants";
 import { showPost, deletePost } from "../../../services/PostService";
 import { checkIfAuthenticated } from "../../../services/AuthService";
 
-const PostView = (props) => {
+const commentsList = createContext();
+
+const PostView = ({ history, match }) => {
     const [post, setPost] = useState({
         userId: "",
         postId: "",
@@ -22,7 +24,7 @@ const PostView = (props) => {
 
     const getPostDetails = async () => {
         setPost({ ...post, isLoading: true });
-        const postId = props.match.params.id;
+        const postId = match.params.id;
         const res = await showPost(postId);
         const isAuthenticated = checkIfAuthenticated();
         let userId = "";
@@ -46,7 +48,6 @@ const PostView = (props) => {
         const response = await deletePost(id);
         //console.log(response);
         if (response.success) {
-            const { history } = props;
             history.push(`${PUBLIC_URL}`);
         } else {
             alert("Sorry, Something is wrong.");
@@ -91,15 +92,12 @@ const PostView = (props) => {
                 </div>
             )}
 
-            <CommentList
-                commentList={post.commentList}
-                history={props.history}
-                match={props.match}
-                // isDetailsView={true}
-                //onEditTask={this.onEditTask}
-            />
+            <commentsList.Provider value={post.commentList}>
+                <CommentList />
+            </commentsList.Provider>
         </>
     );
 };
 
-export default PostView;
+export default withRouter(PostView);
+export { commentsList };

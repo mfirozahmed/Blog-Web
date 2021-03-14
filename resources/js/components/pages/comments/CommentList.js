@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { withRouter } from "react-router-dom";
 import { Card, Form, Button, Spinner } from "react-bootstrap";
 import { PUBLIC_URL } from "../../../constants";
 import { storeNewComment } from "../../../services/CommentService";
 import { getProfile } from "../../../services/ProfileService";
 import { checkIfAuthenticated } from "../../../services/AuthService";
+import { commentsList } from "../posts/PostView";
 
-function CommentList({ commentList, history, match }) {
+function CommentList({ history, match }) {
     const [comment, setComment] = useState({
         user_id: "",
         description: "",
@@ -13,6 +15,7 @@ function CommentList({ commentList, history, match }) {
     });
 
     useEffect(() => {
+        console.log(history, match);
         const isAuthenticated = checkIfAuthenticated();
         if (isAuthenticated) {
             setComment({
@@ -21,6 +24,9 @@ function CommentList({ commentList, history, match }) {
             });
         }
     }, []);
+
+    const commentList = useContext(commentsList);
+
     const changeInput = (e) => {
         setComment({
             ...comment,
@@ -107,4 +113,4 @@ function CommentList({ commentList, history, match }) {
     );
 }
 
-export default CommentList;
+export default withRouter(CommentList);

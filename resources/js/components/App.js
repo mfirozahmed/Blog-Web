@@ -49,7 +49,8 @@ const App = () => {
                                 exact={true}
                                 component={Users}
                             />
-                            <Route
+                            <AuthenticatedRoutes
+                                authed={info.isLoggedIn}
                                 path={`${PUBLIC_URL}my-blogs`}
                                 exact={true}
                                 component={MyBlogs}
@@ -65,7 +66,8 @@ const App = () => {
                                 component={PostCreate}
                                 exact={true}
                             />
-                            <Route
+                            <AuthenticatedRoutes
+                                authed={info.isLoggedIn}
                                 path={`${PUBLIC_URL}post/edit/:id`}
                                 component={PostEdit}
                                 exact={true}
@@ -75,7 +77,8 @@ const App = () => {
                                 component={ProfileView}
                                 exact={true}
                             />
-                            <Route
+                            <AuthenticatedRoutes
+                                authed={info.isLoggedIn}
                                 path={`${PUBLIC_URL}profile/edit/:id`}
                                 component={ProfileEdit}
                                 exact={true}
