@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Card, Button, Badge, Spinner, Form, Alert } from "react-bootstrap";
-import { Link, withRouter, Redirect } from "react-router-dom";
+import { Card, Button, Spinner, Form, Alert } from "react-bootstrap";
+import { withRouter, Redirect } from "react-router-dom";
 import { PUBLIC_URL } from "../../../constants";
 import { loginUser, checkIfAuthenticated } from "../../../services/AuthService";
 
-const Login = (props) => {
+const Login = () => {
+    /* Initialize the states */
     const initialForm = {
         isLoading: false,
         email: "",
@@ -17,22 +18,23 @@ const Login = (props) => {
 
     const { email, password } = formData;
 
+    /* Change form data as per input */
     const changeInput = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    /* Submit form data using the inputs */
     const submitForm = async (e) => {
         e.preventDefault();
 
         setFormData({ ...formData, validated: true, isLoading: true });
-
-        const { history } = props;
 
         const postBody = {
             email: formData.email,
             password: formData.password,
         };
 
+        /* Sending request to backend for data */
         const response = await loginUser(postBody);
         if (response.success) {
             setFormData({
@@ -42,6 +44,8 @@ const Login = (props) => {
                 errors: {},
                 errorMessage: "",
             });
+
+            /* Storing logged in user data and change the window to home */
             localStorage.setItem("loginData", JSON.stringify(response));
             window.location.href = PUBLIC_URL;
         } else {
@@ -55,6 +59,7 @@ const Login = (props) => {
         }
     };
 
+    /* If user is already logged in then redirect to home */
     if (true) {
         const res = checkIfAuthenticated();
         if (res) {
@@ -76,6 +81,7 @@ const Login = (props) => {
                     <div className="col-8">
                         <Card>
                             <Card.Body>
+                                {/* If there are errors from backend, show them */}
                                 {formData.errorMessage.length > 0 && (
                                     <Alert
                                         variant="danger"

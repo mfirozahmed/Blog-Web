@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
-import { Container, NavDropdown, Nav, Navbar } from "react-bootstrap";
+import React from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { PUBLIC_URL } from "../../constants";
 
 const Header = (props) => {
+    /* Delete Login data from local storage and redirect to login page */
     const logout = () => {
         localStorage.removeItem("loginData");
         window.location.href = PUBLIC_URL + "login";
@@ -23,6 +24,8 @@ const Header = (props) => {
                                 Home
                             </Nav.Item>
                         </Link>
+
+                        {/*  If user is authenticated then show these routes */}
                         {props.authData.isLoggedIn && (
                             <>
                                 <Link to={`${PUBLIC_URL}my-blogs`}>
@@ -46,6 +49,7 @@ const Header = (props) => {
                         </Link>
                     </Nav>
                     <Nav className="ml-auto">
+                        {/* If user is not logged in then show these routes */}
                         {!props.authData.isLoggedIn && (
                             <>
                                 <Link to={`${PUBLIC_URL}login`}>
@@ -62,6 +66,7 @@ const Header = (props) => {
                         )}
                     </Nav>
                     <Nav className="ml-auto">
+                        {/* If user is logged in then show these routes */}
                         {props.authData.isLoggedIn && (
                             <Nav.Link onClick={() => logout()}>
                                 <Nav.Item className="text-white mr-2 ">

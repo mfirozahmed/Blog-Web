@@ -1,13 +1,15 @@
+import React, { useEffect, useState, createContext } from "react";
 import { Table, InputGroup, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import React, { useEffect, useState, createContext } from "react";
 import { PUBLIC_URL } from "../../constants";
 import { getProfiles, customizedProfile } from "../../services/ProfileService";
 import { getPaginatedData } from "../../services/PaginationService";
 import Pagination from "../layouts/Pagination";
 
 const paginationList = createContext();
+
 const Users = () => {
+    /* Initialize the states */
     const [profile, setProfile] = useState({
         isLoading: false,
         searchText: "",
@@ -28,12 +30,15 @@ const Users = () => {
         getAllProfiles();
     }, []);
 
+    /* Get all the profiles */
     const getAllProfiles = async () => {
         setProfile({ ...profile, isLoading: true });
         const data = {
             column: "name",
             order: "asc",
         };
+
+        /* Sending request to backend for data */
         const response = await getProfiles(data);
         if (response.success) {
             setProfile({
@@ -42,12 +47,15 @@ const Users = () => {
                 isLoading: false,
             });
 
+            /* Get pagination data */
             const paginateData = getPaginatedData();
             if (!paginateData) {
                 const paginationResponse = {
                     currentPage: paginate.currentPage,
                     userPerPage: paginate.userPerPage,
                 };
+
+                /* Store pagination data in storage */
                 localStorage.setItem(
                     "paginateData",
                     JSON.stringify(paginationResponse)
@@ -65,6 +73,8 @@ const Users = () => {
             });
         }
     };
+
+    /* Sort the data table based on different columns */
     const clickedColumn = async (column) => {
         let data = "";
         if (column == "name") {
@@ -116,8 +126,9 @@ const Users = () => {
                 order: sort.website,
             };
         }
+
+        /* Sending request to backend for data */
         const response = await customizedProfile(data);
-        console.log(response);
         if (response.success) {
             setProfile({
                 ...profile,
@@ -132,19 +143,20 @@ const Users = () => {
         }
     };
 
+    /* Search anything in the table */
     const onSearch = (e) => {
         const searchText = e.target.value;
-        console.log("intial:" + searchText);
         setProfile({
             ...profile,
             isLoading: true,
         });
+
+        /* If there is any char in the search box, search that and save the result */
         if (searchText.length > 0) {
             const searchData = profile.profileList.filter((profile) => {
                 const profileData =
                     profile.name + " " + profile.email + " " + profile.website;
                 const textData = searchText.trim().toLowerCase();
-                console.log("next:" + textData);
                 return (
                     profileData.trim().toLowerCase().indexOf(textData) !== -1
                 );
@@ -160,10 +172,13 @@ const Users = () => {
                 ...profile,
                 searchText: "",
             });
+
+            /* If seach box is empty then get all the profiles */
             getAllProfiles();
         }
     };
 
+    /* Set pagination information */
     const indexOfLastUser = paginate.currentPage * paginate.userPerPage;
     const indexOfFirstUser = indexOfLastUser - paginate.userPerPage;
     const currentUsers = profile.profileList.slice(
@@ -171,18 +186,22 @@ const Users = () => {
         indexOfLastUser
     );
 
+    /* Page change based on page number */
     const pageChange = (pageNumber) => {
         setPaginate({ ...paginate, currentPage: pageNumber });
         const paginationResponse = {
             currentPage: pageNumber,
             userPerPage: paginate.userPerPage,
         };
+
+        /* Store pagination data after page value change */
         localStorage.setItem(
             "paginateData",
             JSON.stringify(paginationResponse)
         );
     };
 
+    /* Per page change based on per page number */
     const onPerPage = (e) => {
         const userPerPage = e.target.value;
         setPaginate({ ...paginate, userPerPage: userPerPage });
@@ -190,6 +209,8 @@ const Users = () => {
             currentPage: paginate.currentPage,
             userPerPage: userPerPage,
         };
+
+        /* Store pagination data after per page value change */
         localStorage.setItem(
             "paginateData",
             JSON.stringify(paginationResponse)
@@ -287,6 +308,8 @@ const Users = () => {
                         </th>
                     </tr>
                 </thead>
+
+                {/* If the seach box is empty */}
                 {!profile.searchText ? (
                     <tbody>
                         {currentUsers.map((eachProfile, index) => (
@@ -304,6 +327,8 @@ const Users = () => {
                         ))}
                     </tbody>
                 ) : null}
+
+                {/* If there is char in search box */}
                 {profile.searchText ? (
                     <tbody>
                         {profile.searchProfileList.map((eachProfile, index) => (
@@ -322,6 +347,7 @@ const Users = () => {
                     </tbody>
                 ) : null}
             </Table>
+            {/* Sending pagination data using context api */}
             <paginationList.Provider
                 value={{
                     usersPerPage: paginate.userPerPage,

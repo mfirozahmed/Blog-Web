@@ -6,6 +6,7 @@ import { getProfile, updateProfile } from "../../../services/ProfileService";
 import { checkIfAuthenticated } from "../../../services/AuthService";
 
 function ProfileEdit(props) {
+    /* Initialize the states */
     const [profile, setProfile] = useState({
         userId: "",
         name: "",
@@ -18,6 +19,7 @@ function ProfileEdit(props) {
         getProfileDetails();
     }, []);
 
+    /* Get the logged in user profile */
     const getProfileDetails = async () => {
         setProfile({ ...profile, isLoading: true });
         const userId = props.match.params.id;
@@ -28,9 +30,9 @@ function ProfileEdit(props) {
                 history.push(`${PUBLIC_URL}profile/${isAuthenticated.id}`);
             }
         }
-        const res = await getProfile(userId);
 
-        //console.log(res.data);
+        /* Sending data to backend for response */
+        const res = await getProfile(userId);
         setProfile({
             ...profile,
             userId: userId,
@@ -42,6 +44,7 @@ function ProfileEdit(props) {
         });
     };
 
+    /* Change form data as per input */
     const changeInput = (e) => {
         setProfile({
             ...profile,
@@ -49,6 +52,7 @@ function ProfileEdit(props) {
         });
     };
 
+    /* Submit form data using the inputs */
     const submitForm = async (e) => {
         e.preventDefault();
         const { history } = props;
@@ -58,8 +62,9 @@ function ProfileEdit(props) {
             name: profile.name,
             website: profile.website,
         };
+
+        /* Sending data to backend for response */
         const response = await updateProfile(profile.userId, profileBody);
-        //console.log(response);
         if (response.success) {
             setProfile({
                 ...profile,

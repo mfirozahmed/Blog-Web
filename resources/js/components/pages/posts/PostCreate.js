@@ -5,6 +5,7 @@ import { PUBLIC_URL } from "../../../constants";
 import { storeNewPost } from "../../../services/PostService";
 
 function PostCreate(props) {
+    /* Initialize the states */
     const [state, setState] = useState({
         isLoading: false,
         name: "",
@@ -12,6 +13,7 @@ function PostCreate(props) {
         errors: {},
     });
 
+    /* Change form data as per input */
     const changeInput = (e) => {
         e.preventDefault();
         setState({
@@ -20,6 +22,7 @@ function PostCreate(props) {
         });
     };
 
+    /* Submit form data using the inputs */
     const submitForm = async (e) => {
         e.preventDefault();
         const { history } = props;
@@ -29,8 +32,9 @@ function PostCreate(props) {
             title: state.name,
             description: state.description,
         };
+
+        /* Sending data to backend for response */
         const response = await storeNewPost(postBody);
-        //console.log(response);
         if (response.success) {
             setState({
                 name: "",

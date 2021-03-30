@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Spinner, Alert } from "react-bootstrap";
 import { Link, withRouter } from "react-router-dom";
 import { PUBLIC_URL } from "../../constants";
 import { getMyPostList } from "../../services/PostService";
 
 const MyBlog = () => {
+    /* Initialize the states */
     const [post, setPost] = useState({
         postList: [],
         searchPostList: [],
@@ -15,11 +16,12 @@ const MyBlog = () => {
         getMyPostLists();
     }, []);
 
+    /* Get logged in user's posts */
     const getMyPostLists = async () => {
         setPost({ ...post, isLoading: true });
-        const response = await getMyPostList();
-        console.log(response);
 
+        /* Sending request to backend for data */
+        const response = await getMyPostList();
         if (response.success) {
             setPost({
                 ...post,

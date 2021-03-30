@@ -9,6 +9,7 @@ import { checkIfAuthenticated } from "../../../services/AuthService";
 const commentsList = createContext();
 
 const PostView = ({ history, match }) => {
+    /* Initialize the states */
     const [post, setPost] = useState({
         userId: "",
         postId: "",
@@ -22,17 +23,19 @@ const PostView = ({ history, match }) => {
         getPostDetails();
     }, []);
 
+    /* Get the details of a post */
     const getPostDetails = async () => {
         setPost({ ...post, isLoading: true });
+
         const postId = match.params.id;
         const res = await showPost(postId);
+
         const isAuthenticated = checkIfAuthenticated();
         let userId = "";
         if (isAuthenticated) {
             userId = isAuthenticated.id;
         }
-        //console.log(userId);
-        console.log(res.data);
+
         setPost({
             ...post,
             userId: userId,
@@ -44,13 +47,14 @@ const PostView = ({ history, match }) => {
         });
     };
 
+    /* Delete own post using post id*/
     const clickDeletePost = async (id) => {
         const response = await deletePost(id);
-        //console.log(response);
         if (response.success) {
             history.push(`${PUBLIC_URL}`);
         } else {
             alert("Sorry, Something is wrong.");
+            history.push(`${PUBLIC_URL}`);
         }
     };
 
@@ -61,6 +65,7 @@ const PostView = ({ history, match }) => {
                     <h1>{post.postDetails.title}</h1>
                     <h4>{post.postDetails.description}</h4>
                 </div>
+                {/* If logged in user id and post user if is same, then show the buttons */}
                 {post.userId == post.postUserId && (
                     <>
                         <div className="float-right">
@@ -92,6 +97,7 @@ const PostView = ({ history, match }) => {
                 </div>
             )}
 
+            {/* Sending comment data using context api */}
             <commentsList.Provider value={post.commentList}>
                 <CommentList />
             </commentsList.Provider>

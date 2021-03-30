@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Card, Button, Badge, Spinner, Form } from "react-bootstrap";
-import { Link, withRouter, Redirect } from "react-router-dom";
-import Axios from "axios";
+import { Card, Button, Spinner, Form } from "react-bootstrap";
+import { withRouter, Redirect } from "react-router-dom";
 import { PUBLIC_URL } from "../../../constants";
 import {
     registerUser,
     checkIfAuthenticated,
 } from "../../../services/AuthService";
 
-const Register = (props) => {
+const Register = () => {
+    /* Initialize the states */
     const initialForm = {
         isLoading: false,
         username: "",
@@ -31,14 +31,14 @@ const Register = (props) => {
         website,
     } = formData;
 
+    /* Change form data as per input */
     const changeInput = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    /* Submit form data using the inputs */
     const submitForm = async (e) => {
         e.preventDefault();
-
-        const { history } = props;
 
         const postBody = {
             name: formData.name,
@@ -53,8 +53,8 @@ const Register = (props) => {
             setFormData({ ...formData, validated: true, isLoading: true });
         }
 
+        /* Sending data to backend for response */
         const response = await registerUser(postBody);
-        console.log(response);
         if (response.success) {
             setFormData({
                 username: "",
@@ -66,6 +66,8 @@ const Register = (props) => {
                 isLoading: false,
                 errors: {},
             });
+
+            /* Storing registered user's logged in data and change the window to home */
             localStorage.setItem("loginData", JSON.stringify(response));
             window.location.href = PUBLIC_URL;
         } else {
@@ -75,10 +77,10 @@ const Register = (props) => {
                 errors: response.errors,
                 isLoading: false,
             });
-            //localStorage.setItem("loginData", null);
         }
     };
 
+    /* If user is already logged in then redirect to home */
     if (true) {
         const res = checkIfAuthenticated();
         if (res) {

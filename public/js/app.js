@@ -2193,16 +2193,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/Home */ "./resources/js/components/pages/Home.js");
 /* harmony import */ var _pages_MyBlogs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/MyBlogs */ "./resources/js/components/pages/MyBlogs.js");
 /* harmony import */ var _pages_Users__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/Users */ "./resources/js/components/pages/Users.js");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../constants */ "./resources/js/constants.js");
-/* harmony import */ var _pages_auth_Register__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/auth/Register */ "./resources/js/components/pages/auth/Register.js");
-/* harmony import */ var _pages_auth_Login__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/auth/Login */ "./resources/js/components/pages/auth/Login.js");
-/* harmony import */ var _services_AuthService__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/AuthService */ "./resources/js/services/AuthService.js");
-/* harmony import */ var _AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./AuthenticatedRoutes */ "./resources/js/components/AuthenticatedRoutes.js");
-/* harmony import */ var _pages_posts_PostCreate__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/posts/PostCreate */ "./resources/js/components/pages/posts/PostCreate.js");
-/* harmony import */ var _pages_posts_PostEdit__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/posts/PostEdit */ "./resources/js/components/pages/posts/PostEdit.js");
-/* harmony import */ var _pages_posts_PostView__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/posts/PostView */ "./resources/js/components/pages/posts/PostView.js");
-/* harmony import */ var _pages_profile_ProfileView__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/profile/ProfileView */ "./resources/js/components/pages/profile/ProfileView.js");
-/* harmony import */ var _pages_profile_ProfileEdit__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pages/profile/ProfileEdit */ "./resources/js/components/pages/profile/ProfileEdit.js");
+/* harmony import */ var _pages_auth_Register__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/auth/Register */ "./resources/js/components/pages/auth/Register.js");
+/* harmony import */ var _pages_auth_Login__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/auth/Login */ "./resources/js/components/pages/auth/Login.js");
+/* harmony import */ var _AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./AuthenticatedRoutes */ "./resources/js/components/AuthenticatedRoutes.js");
+/* harmony import */ var _pages_posts_PostCreate__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/posts/PostCreate */ "./resources/js/components/pages/posts/PostCreate.js");
+/* harmony import */ var _pages_posts_PostEdit__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/posts/PostEdit */ "./resources/js/components/pages/posts/PostEdit.js");
+/* harmony import */ var _pages_posts_PostView__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/posts/PostView */ "./resources/js/components/pages/posts/PostView.js");
+/* harmony import */ var _pages_profile_ProfileView__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/profile/ProfileView */ "./resources/js/components/pages/profile/ProfileView.js");
+/* harmony import */ var _pages_profile_ProfileEdit__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/profile/ProfileEdit */ "./resources/js/components/pages/profile/ProfileEdit.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../constants */ "./resources/js/constants.js");
+/* harmony import */ var _services_AuthService__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../services/AuthService */ "./resources/js/services/AuthService.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -2240,6 +2240,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var App = function App() {
+  /* Initialize the states */
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     user: {},
     isLoggedIn: false
@@ -2249,9 +2250,9 @@ var App = function App() {
       setInfo = _useState2[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if ((0,_services_AuthService__WEBPACK_IMPORTED_MODULE_10__.checkIfAuthenticated)()) {
+    if ((0,_services_AuthService__WEBPACK_IMPORTED_MODULE_16__.checkIfAuthenticated)()) {
       setInfo({
-        user: (0,_services_AuthService__WEBPACK_IMPORTED_MODULE_10__.checkIfAuthenticated)(),
+        user: (0,_services_AuthService__WEBPACK_IMPORTED_MODULE_16__.checkIfAuthenticated)(),
         isLoggedIn: true
       });
     }
@@ -2265,47 +2266,47 @@ var App = function App() {
           className: "p-4",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Switch, {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "users"),
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_15__.PUBLIC_URL, "users"),
               exact: true,
               component: _pages_Users__WEBPACK_IMPORTED_MODULE_6__.default
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_11__.default, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_9__.default, {
               authed: info.isLoggedIn,
-              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "my-blogs"),
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_15__.PUBLIC_URL, "my-blogs"),
               exact: true,
               component: _pages_MyBlogs__WEBPACK_IMPORTED_MODULE_5__.default
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "posts/:id"),
-              component: _pages_posts_PostView__WEBPACK_IMPORTED_MODULE_14__.default,
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_15__.PUBLIC_URL, "posts/:id"),
+              component: _pages_posts_PostView__WEBPACK_IMPORTED_MODULE_12__.default,
               exact: true
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_11__.default, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_9__.default, {
               authed: info.isLoggedIn,
-              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "post/create"),
-              component: _pages_posts_PostCreate__WEBPACK_IMPORTED_MODULE_12__.default,
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_15__.PUBLIC_URL, "post/create"),
+              component: _pages_posts_PostCreate__WEBPACK_IMPORTED_MODULE_10__.default,
               exact: true
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_11__.default, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_9__.default, {
               authed: info.isLoggedIn,
-              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "post/edit/:id"),
-              component: _pages_posts_PostEdit__WEBPACK_IMPORTED_MODULE_13__.default,
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_15__.PUBLIC_URL, "post/edit/:id"),
+              component: _pages_posts_PostEdit__WEBPACK_IMPORTED_MODULE_11__.default,
               exact: true
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "profile/:id"),
-              component: _pages_profile_ProfileView__WEBPACK_IMPORTED_MODULE_15__.default,
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_15__.PUBLIC_URL, "profile/:id"),
+              component: _pages_profile_ProfileView__WEBPACK_IMPORTED_MODULE_13__.default,
               exact: true
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_11__.default, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_9__.default, {
               authed: info.isLoggedIn,
-              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "profile/edit/:id"),
-              component: _pages_profile_ProfileEdit__WEBPACK_IMPORTED_MODULE_16__.default,
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_15__.PUBLIC_URL, "profile/edit/:id"),
+              component: _pages_profile_ProfileEdit__WEBPACK_IMPORTED_MODULE_14__.default,
               exact: true
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "register"),
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_15__.PUBLIC_URL, "register"),
               exact: true,
-              component: _pages_auth_Register__WEBPACK_IMPORTED_MODULE_8__.default
+              component: _pages_auth_Register__WEBPACK_IMPORTED_MODULE_7__.default
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL, "login"),
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_15__.PUBLIC_URL, "login"),
               exact: true,
-              component: _pages_auth_Login__WEBPACK_IMPORTED_MODULE_9__.default
+              component: _pages_auth_Login__WEBPACK_IMPORTED_MODULE_8__.default
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_7__.PUBLIC_URL),
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_15__.PUBLIC_URL),
               exact: true,
               component: _pages_Home__WEBPACK_IMPORTED_MODULE_4__.default
             })]
@@ -2435,6 +2436,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Header = function Header(props) {
+  /* Delete Login data from local storage and redirect to login page */
   var logout = function logout() {
     localStorage.removeItem("loginData");
     window.location.href = _constants__WEBPACK_IMPORTED_MODULE_1__.PUBLIC_URL + "login";
@@ -2545,6 +2547,7 @@ __webpack_require__.r(__webpack_exports__);
 var Pagination = function Pagination(_ref) {
   var pageChange = _ref.pageChange;
 
+  /* Get the necessary data from the parent class */
   var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_pages_Users__WEBPACK_IMPORTED_MODULE_1__.paginationList),
       usersPerPage = _useContext.usersPerPage,
       totalUsers = _useContext.totalUsers,
@@ -2558,6 +2561,8 @@ var Pagination = function Pagination(_ref) {
 
   var firstPage = pageNumbers[0];
   var lastPage = pageNumbers[pageNumbers.length - 1];
+  /* Render page numbers depends on some condition */
+
   var renderPageNumbers = pageNumbers.map(function (number) {
     if (currentPage >= 4 && number == 2) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
@@ -2705,6 +2710,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Home = function Home() {
+  /* Initialize the states */
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
     postList: [],
     isLoading: false
@@ -2721,6 +2727,7 @@ var Home = function Home() {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getPostLists();
   }, []);
+  /* Get all the post */
 
   var getPostLists = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -2732,6 +2739,8 @@ var Home = function Home() {
               setPost(_objectSpread(_objectSpread({}, post), {}, {
                 isLoading: true
               }));
+              /* Sending request to backend for data */
+
               _context.next = 3;
               return (0,_services_PostService__WEBPACK_IMPORTED_MODULE_3__.getPostList)();
 
@@ -2761,10 +2770,12 @@ var Home = function Home() {
       return _ref.apply(this, arguments);
     };
   }();
+  /* Show more post */
+
 
   var showMore = function showMore() {
     setVisible(function (prevValue) {
-      prevValue + 1;
+      prevValue + 10;
     });
   };
 
@@ -2888,6 +2899,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var MyBlog = function MyBlog() {
+  /* Initialize the states */
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
     postList: [],
     searchPostList: [],
@@ -2900,6 +2912,7 @@ var MyBlog = function MyBlog() {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getMyPostLists();
   }, []);
+  /* Get logged in user's posts */
 
   var getMyPostLists = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -2911,12 +2924,13 @@ var MyBlog = function MyBlog() {
               setPost(_objectSpread(_objectSpread({}, post), {}, {
                 isLoading: true
               }));
+              /* Sending request to backend for data */
+
               _context.next = 3;
               return (0,_services_PostService__WEBPACK_IMPORTED_MODULE_3__.getMyPostList)();
 
             case 3:
               response = _context.sent;
-              console.log(response);
 
               if (response.success) {
                 setPost(_objectSpread(_objectSpread({}, post), {}, {
@@ -2930,7 +2944,7 @@ var MyBlog = function MyBlog() {
                 }));
               }
 
-            case 6:
+            case 5:
             case "end":
               return _context.stop();
           }
@@ -3012,11 +3026,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/InputGroup.js");
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/FormControl.js");
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Table.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../constants */ "./resources/js/constants.js");
 /* harmony import */ var _services_ProfileService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/ProfileService */ "./resources/js/services/ProfileService.js");
 /* harmony import */ var _services_PaginationService__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/PaginationService */ "./resources/js/services/PaginationService.js");
@@ -3059,6 +3073,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var paginationList = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_1__.createContext)();
 
 var Users = function Users() {
+  /* Initialize the states */
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
     isLoading: false,
     searchText: "",
@@ -3089,6 +3104,7 @@ var Users = function Users() {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getAllProfiles();
   }, []);
+  /* Get all the profiles */
 
   var getAllProfiles = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -3104,6 +3120,8 @@ var Users = function Users() {
                 column: "name",
                 order: "asc"
               };
+              /* Sending request to backend for data */
+
               _context.next = 4;
               return (0,_services_ProfileService__WEBPACK_IMPORTED_MODULE_3__.getProfiles)(data);
 
@@ -3115,6 +3133,8 @@ var Users = function Users() {
                   profileList: response.data,
                   isLoading: false
                 }));
+                /* Get pagination data */
+
                 paginateData = (0,_services_PaginationService__WEBPACK_IMPORTED_MODULE_4__.getPaginatedData)();
 
                 if (!paginateData) {
@@ -3122,6 +3142,8 @@ var Users = function Users() {
                     currentPage: paginate.currentPage,
                     userPerPage: paginate.userPerPage
                   };
+                  /* Store pagination data in storage */
+
                   localStorage.setItem("paginateData", JSON.stringify(paginationResponse));
                 } else {
                   setPaginate({
@@ -3147,6 +3169,8 @@ var Users = function Users() {
       return _ref.apply(this, arguments);
     };
   }();
+  /* Sort the data table based on different columns */
+
 
   var clickedColumn = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(column) {
@@ -3203,13 +3227,14 @@ var Users = function Users() {
                   order: sort.website
                 };
               }
+              /* Sending request to backend for data */
+
 
               _context2.next = 4;
               return (0,_services_ProfileService__WEBPACK_IMPORTED_MODULE_3__.customizedProfile)(data);
 
             case 4:
               response = _context2.sent;
-              console.log(response);
 
               if (response.success) {
                 setProfile(_objectSpread(_objectSpread({}, profile), {}, {
@@ -3222,7 +3247,7 @@ var Users = function Users() {
                 }));
               }
 
-            case 7:
+            case 6:
             case "end":
               return _context2.stop();
           }
@@ -3234,19 +3259,20 @@ var Users = function Users() {
       return _ref2.apply(this, arguments);
     };
   }();
+  /* Search anything in the table */
+
 
   var onSearch = function onSearch(e) {
     var searchText = e.target.value;
-    console.log("intial:" + searchText);
     setProfile(_objectSpread(_objectSpread({}, profile), {}, {
       isLoading: true
     }));
+    /* If there is any char in the search box, search that and save the result */
 
     if (searchText.length > 0) {
       var searchData = profile.profileList.filter(function (profile) {
         var profileData = profile.name + " " + profile.email + " " + profile.website;
         var textData = searchText.trim().toLowerCase();
-        console.log("next:" + textData);
         return profileData.trim().toLowerCase().indexOf(textData) !== -1;
       });
       setProfile(_objectSpread(_objectSpread({}, profile), {}, {
@@ -3258,13 +3284,18 @@ var Users = function Users() {
       setProfile(_objectSpread(_objectSpread({}, profile), {}, {
         searchText: ""
       }));
+      /* If seach box is empty then get all the profiles */
+
       getAllProfiles();
     }
   };
+  /* Set pagination information */
+
 
   var indexOfLastUser = paginate.currentPage * paginate.userPerPage;
   var indexOfFirstUser = indexOfLastUser - paginate.userPerPage;
   var currentUsers = profile.profileList.slice(indexOfFirstUser, indexOfLastUser);
+  /* Page change based on page number */
 
   var pageChange = function pageChange(pageNumber) {
     setPaginate(_objectSpread(_objectSpread({}, paginate), {}, {
@@ -3274,8 +3305,12 @@ var Users = function Users() {
       currentPage: pageNumber,
       userPerPage: paginate.userPerPage
     };
+    /* Store pagination data after page value change */
+
     localStorage.setItem("paginateData", JSON.stringify(paginationResponse));
   };
+  /* Per page change based on per page number */
+
 
   var onPerPage = function onPerPage(e) {
     var userPerPage = e.target.value;
@@ -3286,6 +3321,8 @@ var Users = function Users() {
       currentPage: paginate.currentPage,
       userPerPage: userPerPage
     };
+    /* Store pagination data after per page value change */
+
     localStorage.setItem("paginateData", JSON.stringify(paginationResponse));
   };
 
@@ -3493,7 +3530,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var Login = function Login(props) {
+var Login = function Login() {
+  /* Initialize the states */
   var initialForm = {
     isLoading: false,
     email: "",
@@ -3510,14 +3548,17 @@ var Login = function Login(props) {
 
   var email = formData.email,
       password = formData.password;
+  /* Change form data as per input */
 
   var changeInput = function changeInput(e) {
     setFormData(_objectSpread(_objectSpread({}, formData), {}, _defineProperty({}, e.target.name, e.target.value)));
   };
+  /* Submit form data using the inputs */
+
 
   var submitForm = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
-      var history, postBody, response;
+      var postBody, response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -3527,15 +3568,16 @@ var Login = function Login(props) {
                 validated: true,
                 isLoading: true
               }));
-              history = props.history;
               postBody = {
                 email: formData.email,
                 password: formData.password
               };
-              _context.next = 6;
+              /* Sending request to backend for data */
+
+              _context.next = 5;
               return (0,_services_AuthService__WEBPACK_IMPORTED_MODULE_3__.loginUser)(postBody);
 
-            case 6:
+            case 5:
               response = _context.sent;
 
               if (response.success) {
@@ -3546,6 +3588,8 @@ var Login = function Login(props) {
                   errors: {},
                   errorMessage: ""
                 });
+                /* Storing logged in user data and change the window to home */
+
                 localStorage.setItem("loginData", JSON.stringify(response));
                 window.location.href = _constants__WEBPACK_IMPORTED_MODULE_2__.PUBLIC_URL;
               } else {
@@ -3557,7 +3601,7 @@ var Login = function Login(props) {
                 }));
               }
 
-            case 8:
+            case 7:
             case "end":
               return _context.stop();
           }
@@ -3569,6 +3613,8 @@ var Login = function Login(props) {
       return _ref.apply(this, arguments);
     };
   }();
+  /* If user is already logged in then redirect to home */
+
 
   if (true) {
     var res = (0,_services_AuthService__WEBPACK_IMPORTED_MODULE_3__.checkIfAuthenticated)();
@@ -3695,16 +3741,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Card.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Form.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Button.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Spinner.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../constants */ "./resources/js/constants.js");
-/* harmony import */ var _services_AuthService__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/AuthService */ "./resources/js/services/AuthService.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Card.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Form.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Button.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Spinner.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../constants */ "./resources/js/constants.js");
+/* harmony import */ var _services_AuthService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/AuthService */ "./resources/js/services/AuthService.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -3738,8 +3782,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
-var Register = function Register(props) {
+var Register = function Register() {
+  /* Initialize the states */
   var initialForm = {
     isLoading: false,
     username: "",
@@ -3763,20 +3807,22 @@ var Register = function Register(props) {
       password_confirmation = formData.password_confirmation,
       username = formData.username,
       website = formData.website;
+  /* Change form data as per input */
 
   var changeInput = function changeInput(e) {
     setFormData(_objectSpread(_objectSpread({}, formData), {}, _defineProperty({}, e.target.name, e.target.value)));
   };
+  /* Submit form data using the inputs */
+
 
   var submitForm = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
-      var history, postBody, response;
+      var postBody, response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               e.preventDefault();
-              history = props.history;
               postBody = {
                 name: formData.name,
                 email: formData.email,
@@ -3792,13 +3838,14 @@ var Register = function Register(props) {
                   isLoading: true
                 }));
               }
+              /* Sending data to backend for response */
 
-              _context.next = 6;
-              return (0,_services_AuthService__WEBPACK_IMPORTED_MODULE_4__.registerUser)(postBody);
 
-            case 6:
+              _context.next = 5;
+              return (0,_services_AuthService__WEBPACK_IMPORTED_MODULE_3__.registerUser)(postBody);
+
+            case 5:
               response = _context.sent;
-              console.log(response);
 
               if (response.success) {
                 setFormData({
@@ -3811,17 +3858,19 @@ var Register = function Register(props) {
                   isLoading: false,
                   errors: {}
                 });
+                /* Storing registered user's logged in data and change the window to home */
+
                 localStorage.setItem("loginData", JSON.stringify(response));
-                window.location.href = _constants__WEBPACK_IMPORTED_MODULE_3__.PUBLIC_URL;
+                window.location.href = _constants__WEBPACK_IMPORTED_MODULE_2__.PUBLIC_URL;
               } else {
                 console.log("response.errors", response.errors);
                 setFormData(_objectSpread(_objectSpread({}, formData), {}, {
                   errors: response.errors,
                   isLoading: false
-                })); //localStorage.setItem("loginData", null);
+                }));
               }
 
-            case 9:
+            case 7:
             case "end":
               return _context.stop();
           }
@@ -3833,43 +3882,45 @@ var Register = function Register(props) {
       return _ref.apply(this, arguments);
     };
   }();
+  /* If user is already logged in then redirect to home */
+
 
   if (true) {
-    var res = (0,_services_AuthService__WEBPACK_IMPORTED_MODULE_4__.checkIfAuthenticated)();
+    var res = (0,_services_AuthService__WEBPACK_IMPORTED_MODULE_3__.checkIfAuthenticated)();
 
     if (res) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Redirect, {
-        to: "".concat(_constants__WEBPACK_IMPORTED_MODULE_3__.PUBLIC_URL)
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Redirect, {
+        to: "".concat(_constants__WEBPACK_IMPORTED_MODULE_2__.PUBLIC_URL)
       });
     }
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "header-part",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "float-left",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
           children: "Sign Up"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "clearfix"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Body, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default.Body, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default, {
           onSubmit: function onSubmit(e) {
             return submitForm(e);
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               className: "col-6",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Group, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Group, {
                 controlId: "name",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Label, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Label, {
                   children: "Name"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Control, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Control, {
                   required: true,
                   type: "text",
                   placeholder: "Enter Your Name",
@@ -3878,21 +3929,21 @@ var Register = function Register(props) {
                   onChange: function onChange(e) {
                     return changeInput(e);
                   }
-                }), formData.errors && formData.errors.name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                }), formData.errors && formData.errors.name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                   className: "text-danger",
                   children: formData.errors.name[0]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Control.Feedback, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Control.Feedback, {
                   type: "invalid",
                   children: "Please give your name"
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               className: "col-6",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Group, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Group, {
                 controlId: "username",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Label, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Label, {
                   children: "Username"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Control, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Control, {
                   required: true,
                   type: "text",
                   placeholder: "Enter Your username",
@@ -3901,24 +3952,24 @@ var Register = function Register(props) {
                   onChange: function onChange(e) {
                     return changeInput(e);
                   }
-                }), formData.errors && formData.errors.username && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                }), formData.errors && formData.errors.username && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                   className: "text-danger",
                   children: formData.errors.username[0]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Control.Feedback, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Control.Feedback, {
                   type: "invalid",
                   children: "Please give your username"
                 })]
               })
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               className: "col-6",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Group, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Group, {
                 controlId: "email",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Label, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Label, {
                   children: "Email Address"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Control, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Control, {
                   required: true,
                   type: "email",
                   placeholder: "Enter Email Address",
@@ -3927,21 +3978,21 @@ var Register = function Register(props) {
                   onChange: function onChange(e) {
                     return changeInput(e);
                   }
-                }), formData.errors && formData.errors.email && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                }), formData.errors && formData.errors.email && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                   className: "text-danger",
                   children: formData.errors.email[0]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Control.Feedback, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Control.Feedback, {
                   type: "invalid",
                   children: "Please give your valid email address"
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               className: "col-6",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Group, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Group, {
                 controlId: "website",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Label, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Label, {
                   children: "Website"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Control, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Control, {
                   required: true,
                   type: "text",
                   placeholder: "Enter Your website",
@@ -3950,24 +4001,24 @@ var Register = function Register(props) {
                   onChange: function onChange(e) {
                     return changeInput(e);
                   }
-                }), formData.errors && formData.errors.website && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                }), formData.errors && formData.errors.website && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                   className: "text-danger",
                   children: formData.errors.website[0]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Control.Feedback, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Control.Feedback, {
                   type: "invalid",
                   children: "Please give your website"
                 })]
               })
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               className: "col-6",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Group, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Group, {
                 controlId: "password",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Label, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Label, {
                   children: "Password"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Control, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Control, {
                   required: true,
                   type: "password",
                   placeholder: "Enter Password",
@@ -3977,21 +4028,21 @@ var Register = function Register(props) {
                     return changeInput(e);
                   },
                   minLength: 8
-                }), formData.errors && formData.errors.password && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                }), formData.errors && formData.errors.password && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                   className: "text-danger",
                   children: formData.errors.password[0]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Control.Feedback, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Control.Feedback, {
                   type: "invalid",
                   children: "Please give password"
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               className: "col-6",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Group, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Group, {
                 controlId: "password_confirmation",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Label, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Label, {
                   children: "Confirm Password"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Control, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Control, {
                   required: true,
                   type: "password",
                   placeholder: "Enter Password",
@@ -4001,28 +4052,28 @@ var Register = function Register(props) {
                     return changeInput(e);
                   },
                   minLength: 8
-                }), formData.errors && formData.errors.password_confirmation && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                }), formData.errors && formData.errors.password_confirmation && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                   className: "text-danger",
                   children: formData.errors.password_confirmation[0]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Control.Feedback, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Control.Feedback, {
                   type: "invalid",
                   children: "Please give confirm password"
                 })]
               })
             })]
-          }), formData.isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__.default, {
+          }), formData.isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default, {
             variant: "success",
             type: "button",
             disabled: true,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__.default, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__.default, {
               animation: "border",
               role: "status",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                 className: "sr-only",
                 children: "Loading..."
               })
             }), " ", "Signing Up..."]
-          }), !formData.isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__.default, {
+          }), !formData.isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default, {
             variant: "success",
             type: "submit",
             children: "Sign Up"
@@ -4033,7 +4084,7 @@ var Register = function Register(props) {
   });
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.withRouter)(Register));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.withRouter)(Register));
 
 /***/ }),
 
@@ -4101,6 +4152,7 @@ function CommentList(_ref) {
   var history = _ref.history,
       match = _ref.match;
 
+  /* Initialize the states */
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
     user_id: "",
     description: "",
@@ -4111,7 +4163,6 @@ function CommentList(_ref) {
       setComment = _useState2[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    console.log(history, match);
     var isAuthenticated = (0,_services_AuthService__WEBPACK_IMPORTED_MODULE_5__.checkIfAuthenticated)();
 
     if (isAuthenticated) {
@@ -4133,12 +4184,11 @@ function CommentList(_ref) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              e.preventDefault(); //console.log(props);
-
-              postId = match.params.id;
+              e.preventDefault();
               setComment(_objectSpread(_objectSpread({}, comment), {}, {
                 isLoading: true
               }));
+              postId = match.params.id;
               commentBody = {
                 user_id: comment.user_id,
                 post_id: postId,
@@ -4154,7 +4204,6 @@ function CommentList(_ref) {
 
             case 9:
               response = _context.sent;
-              console.log(response);
 
               if (response.success) {
                 setComment(_objectSpread(_objectSpread({}, comment), {}, {
@@ -4167,8 +4216,7 @@ function CommentList(_ref) {
                   comment_id: response.data.id,
                   description: comment.description
                 };
-                commentList.unshift(commentBody2); //window.location.href = PUBLIC_URL + `posts/${postId}`;
-
+                commentList.unshift(commentBody2);
                 history.push("".concat(_constants__WEBPACK_IMPORTED_MODULE_2__.PUBLIC_URL, "posts/").concat(postId));
               } else {
                 console.log("response.errors", response.errors);
@@ -4178,7 +4226,7 @@ function CommentList(_ref) {
                 }));
               }
 
-            case 12:
+            case 11:
             case "end":
               return _context.stop();
           }
@@ -4297,6 +4345,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function PostCreate(props) {
+  /* Initialize the states */
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
     isLoading: false,
     name: "",
@@ -4306,11 +4355,15 @@ function PostCreate(props) {
       _useState2 = _slicedToArray(_useState, 2),
       state = _useState2[0],
       setState = _useState2[1];
+  /* Change form data as per input */
+
 
   var changeInput = function changeInput(e) {
     e.preventDefault();
     setState(_objectSpread(_objectSpread({}, state), {}, _defineProperty({}, e.target.name, e.target.value)));
   };
+  /* Submit form data using the inputs */
+
 
   var submitForm = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
@@ -4328,13 +4381,14 @@ function PostCreate(props) {
                 title: state.name,
                 description: state.description
               };
+              /* Sending data to backend for response */
+
               _context.next = 6;
               return (0,_services_PostService__WEBPACK_IMPORTED_MODULE_3__.storeNewPost)(postBody);
 
             case 6:
               response = _context.sent;
 
-              //console.log(response);
               if (response.success) {
                 setState({
                   name: "",
@@ -4497,6 +4551,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var PostEdit = function PostEdit(props) {
+  /* Initialize the states */
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
     isLoading: false,
     id: "",
@@ -4511,6 +4566,7 @@ var PostEdit = function PostEdit(props) {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getPostDetails();
   }, []);
+  /* Get the post details */
 
   var getPostDetails = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -4523,12 +4579,13 @@ var PostEdit = function PostEdit(props) {
                 isLoading: true
               }));
               postId = props.match.params.id;
+              /* Sending post id to backend for response */
+
               _context.next = 4;
               return (0,_services_PostService__WEBPACK_IMPORTED_MODULE_3__.showPost)(postId);
 
             case 4:
               res = _context.sent;
-              console.log(res);
               setPost(_objectSpread(_objectSpread({}, post), {}, {
                 id: postId,
                 name: res.data.post.title,
@@ -4536,7 +4593,7 @@ var PostEdit = function PostEdit(props) {
                 isLoading: false
               }));
 
-            case 7:
+            case 6:
             case "end":
               return _context.stop();
           }
@@ -4548,10 +4605,14 @@ var PostEdit = function PostEdit(props) {
       return _ref.apply(this, arguments);
     };
   }();
+  /* Change form data as per input */
+
 
   var changeInput = function changeInput(e) {
     setPost(_objectSpread(_objectSpread({}, post), {}, _defineProperty({}, e.target.name, e.target.value)));
   };
+  /* Submit data using the inputs */
+
 
   var submitForm = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(e) {
@@ -4569,6 +4630,8 @@ var PostEdit = function PostEdit(props) {
                 title: post.name,
                 description: post.description
               };
+              /* Sending data to backend for response */
+
               _context2.next = 6;
               return (0,_services_PostService__WEBPACK_IMPORTED_MODULE_3__.updatePost)(post.id, postBody);
 
@@ -4708,8 +4771,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var PostUser = function PostUser() {
+  /* Get the posts using context api */
   var postList = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_profile_ProfileView__WEBPACK_IMPORTED_MODULE_2__.postsList);
-  console.log(postList);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: [postList.length === 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__.default, {
       variant: "warning",
@@ -4802,6 +4865,7 @@ var PostView = function PostView(_ref) {
   var history = _ref.history,
       match = _ref.match;
 
+  /* Initialize the states */
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
     userId: "",
     postId: "",
@@ -4817,6 +4881,7 @@ var PostView = function PostView(_ref) {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getPostDetails();
   }, []);
+  /* Get the details of a post */
 
   var getPostDetails = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -4839,10 +4904,8 @@ var PostView = function PostView(_ref) {
 
               if (isAuthenticated) {
                 userId = isAuthenticated.id;
-              } //console.log(userId);
+              }
 
-
-              console.log(res.data);
               setPost(_objectSpread(_objectSpread({}, post), {}, {
                 userId: userId,
                 postId: postId,
@@ -4852,7 +4915,7 @@ var PostView = function PostView(_ref) {
                 isLoading: false
               }));
 
-            case 10:
+            case 9:
             case "end":
               return _context.stop();
           }
@@ -4864,6 +4927,8 @@ var PostView = function PostView(_ref) {
       return _ref2.apply(this, arguments);
     };
   }();
+  /* Delete own post using post id*/
+
 
   var clickDeletePost = /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(id) {
@@ -4878,11 +4943,11 @@ var PostView = function PostView(_ref) {
             case 2:
               response = _context2.sent;
 
-              //console.log(response);
               if (response.success) {
                 history.push("".concat(_constants__WEBPACK_IMPORTED_MODULE_3__.PUBLIC_URL));
               } else {
                 alert("Sorry, Something is wrong.");
+                history.push("".concat(_constants__WEBPACK_IMPORTED_MODULE_3__.PUBLIC_URL));
               }
 
             case 4:
@@ -5008,6 +5073,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function ProfileEdit(props) {
+  /* Initialize the states */
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
     userId: "",
     name: "",
@@ -5022,6 +5088,7 @@ function ProfileEdit(props) {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getProfileDetails();
   }, []);
+  /* Get the logged in user profile */
 
   var getProfileDetails = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -5042,13 +5109,14 @@ function ProfileEdit(props) {
                   history.push("".concat(_constants__WEBPACK_IMPORTED_MODULE_2__.PUBLIC_URL, "profile/").concat(isAuthenticated.id));
                 }
               }
+              /* Sending data to backend for response */
+
 
               _context.next = 6;
               return (0,_services_ProfileService__WEBPACK_IMPORTED_MODULE_3__.getProfile)(userId);
 
             case 6:
               res = _context.sent;
-              //console.log(res.data);
               setProfile(_objectSpread(_objectSpread({}, profile), {}, {
                 userId: userId,
                 name: res.data.name,
@@ -5070,10 +5138,14 @@ function ProfileEdit(props) {
       return _ref.apply(this, arguments);
     };
   }();
+  /* Change form data as per input */
+
 
   var changeInput = function changeInput(e) {
     setProfile(_objectSpread(_objectSpread({}, profile), {}, _defineProperty({}, e.target.name, e.target.value)));
   };
+  /* Submit form data using the inputs */
+
 
   var submitForm = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(e) {
@@ -5091,13 +5163,14 @@ function ProfileEdit(props) {
                 name: profile.name,
                 website: profile.website
               };
+              /* Sending data to backend for response */
+
               _context2.next = 6;
               return (0,_services_ProfileService__WEBPACK_IMPORTED_MODULE_3__.updateProfile)(profile.userId, profileBody);
 
             case 6:
               response = _context2.sent;
 
-              //console.log(response);
               if (response.success) {
                 setProfile(_objectSpread(_objectSpread({}, profile), {}, {
                   userId: "",
@@ -5325,6 +5398,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var postsList = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_1__.createContext)();
 
 function ProfileView(props) {
+  /* Initialize the states */
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
     userId: "",
     name: "",
@@ -5341,6 +5415,7 @@ function ProfileView(props) {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getProfileDetails();
   }, []);
+  /* Get profile info */
 
   var getProfileDetails = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -5360,6 +5435,8 @@ function ProfileView(props) {
                   authenticatedUserId: isAuthenticated.id
                 }));
               }
+              /* Sending request to backend for profile and posts */
+
 
               _context.next = 6;
               return (0,_services_ProfileService__WEBPACK_IMPORTED_MODULE_3__.getProfile)(userId);
@@ -5371,7 +5448,6 @@ function ProfileView(props) {
 
             case 9:
               res2 = _context.sent;
-              //console.log(userId);
               setProfile(_objectSpread(_objectSpread({}, profile), {}, {
                 userId: userId,
                 name: res1.data.name,
@@ -5558,8 +5634,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 /**
- * checkIfAuthenticated()
- *
  * Check if any route is authenticated or not
  */
 
@@ -5579,9 +5653,7 @@ var checkIfAuthenticated = function checkIfAuthenticated() {
   return false;
 };
 /**
- * registerUser()
- *
- * @param {object} data
+ * Register user
  */
 
 var registerUser = /*#__PURE__*/function () {
@@ -5611,9 +5683,7 @@ var registerUser = /*#__PURE__*/function () {
   };
 }();
 /**
- * loginUser()
- *
- * @param {object} data
+ * Login user()
  */
 
 var loginUser = /*#__PURE__*/function () {
@@ -5667,6 +5737,10 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
+/**
+ * Add new comment using the data from the request
+ */
+
 var storeNewComment = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(data) {
     var res;
@@ -5707,6 +5781,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "getPaginatedData": () => (/* binding */ getPaginatedData)
 /* harmony export */ });
+/**
+ * Check if there is pagination data and send
+ */
 var getPaginatedData = function getPaginatedData() {
   var getPaginateData = localStorage.getItem("paginateData");
 
@@ -5748,6 +5825,10 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
+/**
+ * Get all the posts
+ */
+
 var getPostList = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
     var res;
@@ -5774,6 +5855,10 @@ var getPostList = /*#__PURE__*/function () {
     return _ref.apply(this, arguments);
   };
 }();
+/**
+ * Get a specified post
+ */
+
 var showPost = /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(data) {
     var res;
@@ -5800,6 +5885,10 @@ var showPost = /*#__PURE__*/function () {
     return _ref2.apply(this, arguments);
   };
 }();
+/**
+ * Store a new post against a user
+ */
+
 var storeNewPost = /*#__PURE__*/function () {
   var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(data) {
     var getLoginData, userData, res;
@@ -5833,6 +5922,10 @@ var storeNewPost = /*#__PURE__*/function () {
     return _ref3.apply(this, arguments);
   };
 }();
+/**
+ * Get all post of a logged in user
+ */
+
 var getMyPostList = /*#__PURE__*/function () {
   var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
     var getLoginData, id, userData, res;
@@ -5868,6 +5961,10 @@ var getMyPostList = /*#__PURE__*/function () {
     return _ref4.apply(this, arguments);
   };
 }();
+/**
+ * Get all post of a specific user
+ */
+
 var getUserPostList = /*#__PURE__*/function () {
   var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(id) {
     var res;
@@ -5894,6 +5991,10 @@ var getUserPostList = /*#__PURE__*/function () {
     return _ref5.apply(this, arguments);
   };
 }();
+/**
+ * Update a specific post
+ */
+
 var updatePost = /*#__PURE__*/function () {
   var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6(id, data) {
     var res;
@@ -5920,6 +6021,10 @@ var updatePost = /*#__PURE__*/function () {
     return _ref6.apply(this, arguments);
   };
 }();
+/**
+ * Delete a specific post
+ */
+
 var deletePost = /*#__PURE__*/function () {
   var _ref7 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7(id) {
     var res;
@@ -5974,6 +6079,10 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
+/**
+ * Get all the profiles
+ */
+
 var getProfiles = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
     var res;
@@ -6000,6 +6109,10 @@ var getProfiles = /*#__PURE__*/function () {
     return _ref.apply(this, arguments);
   };
 }();
+/**
+ * Get a specific profile
+ */
+
 var getProfile = /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(id) {
     var res;
@@ -6026,6 +6139,10 @@ var getProfile = /*#__PURE__*/function () {
     return _ref2.apply(this, arguments);
   };
 }();
+/**
+ * Update a specific profile
+ */
+
 var updateProfile = /*#__PURE__*/function () {
   var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(id, data) {
     var res;
@@ -6052,6 +6169,10 @@ var updateProfile = /*#__PURE__*/function () {
     return _ref3.apply(this, arguments);
   };
 }();
+/**
+ * Get all the profiles but customized
+ */
+
 var customizedProfile = /*#__PURE__*/function () {
   var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(data) {
     var res;

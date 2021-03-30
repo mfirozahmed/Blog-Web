@@ -14,11 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-
 Route::get('/home', 'HomeController@index');
 
 Route::post('/auth/login', 'Api\AuthController@login');
@@ -27,6 +22,8 @@ Route::post('/auth/register', 'Api\AuthController@register');
 
 Route::get('/posts/user/{id}', 'Api\PostsController@myPost');
 Route::apiResource('posts', 'Api\PostsController');
+
 Route::apiResource('comments', 'Api\CommentsController');
+
 Route::post('/profiles/all', 'Api\ProfilesController@allProfilePage');
 Route::apiResource('profiles', 'Api\ProfilesController');

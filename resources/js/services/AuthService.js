@@ -1,8 +1,6 @@
 import Axios from "axios";
 
 /**
- * checkIfAuthenticated()
- *
  * Check if any route is authenticated or not
  */
 export const checkIfAuthenticated = () => {
@@ -18,9 +16,7 @@ export const checkIfAuthenticated = () => {
 };
 
 /**
- * registerUser()
- *
- * @param {object} data
+ * Register user
  */
 export const registerUser = async (data) => {
     const res = await Axios.post(
@@ -31,9 +27,7 @@ export const registerUser = async (data) => {
 };
 
 /**
- * loginUser()
- *
- * @param {object} data
+ * Login user()
  */
 export const loginUser = async (data) => {
     const res = await Axios.post("http://127.0.0.1:8000/api/auth/login", data);

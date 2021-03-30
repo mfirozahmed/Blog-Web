@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./layouts/Header";
 import Footer from "./layouts/Footer";
 import { Container } from "react-bootstrap";
@@ -9,10 +9,8 @@ import { Container } from "react-bootstrap";
 import Home from "./pages/Home";
 import MyBlogs from "./pages/MyBlogs";
 import Users from "./pages/Users";
-import { PUBLIC_URL } from "../constants";
 import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
-import { checkIfAuthenticated } from "../services/AuthService";
 import AuthenticatedRoutes from "./AuthenticatedRoutes";
 
 import PostCreate from "./pages/posts/PostCreate";
@@ -22,7 +20,11 @@ import PostView from "./pages/posts/PostView";
 import ProfileView from "./pages/profile/ProfileView";
 import ProfileEdit from "./pages/profile/ProfileEdit";
 
+import { PUBLIC_URL } from "../constants";
+import { checkIfAuthenticated } from "../services/AuthService";
+
 const App = () => {
+    /* Initialize the states */
     const [info, setInfo] = useState({
         user: {},
         isLoggedIn: false,

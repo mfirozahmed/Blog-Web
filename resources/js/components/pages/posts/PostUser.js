@@ -1,12 +1,12 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Card, Spinner, Alert } from "react-bootstrap";
+import { Card, Alert } from "react-bootstrap";
 import { PUBLIC_URL } from "../../../constants";
 import { postsList } from "../profile/ProfileView";
 
 const PostUser = () => {
+    /* Get the posts using context api */
     const postList = useContext(postsList);
-    console.log(postList);
     return (
         <>
             {postList.length === 0 && (

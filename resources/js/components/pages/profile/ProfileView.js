@@ -10,6 +10,7 @@ import PostUser from "../posts/PostUser";
 const postsList = createContext();
 
 function ProfileView(props) {
+    /* Initialize the states */
     const [profile, setProfile] = useState({
         userId: "",
         name: "",
@@ -24,6 +25,7 @@ function ProfileView(props) {
         getProfileDetails();
     }, []);
 
+    /* Get profile info */
     const getProfileDetails = async () => {
         setProfile({ ...profile, isLoading: true });
         let userId = props.match.params.id;
@@ -34,9 +36,10 @@ function ProfileView(props) {
                 authenticatedUserId: isAuthenticated.id,
             });
         }
+
+        /* Sending request to backend for profile and posts */
         const res1 = await getProfile(userId);
         const res2 = await getUserPostList(userId);
-        //console.log(userId);
         setProfile({
             ...profile,
             userId: userId,
@@ -163,6 +166,7 @@ function ProfileView(props) {
                         </div>
                     </div>
 
+                    {/* If logged in user id and profile user id is same, show button */}
                     {profile.userId == profile.authenticatedUserId && (
                         <div className="input-group mb-3">
                             <div className="input-group-prepend">
@@ -178,6 +182,7 @@ function ProfileView(props) {
                 </div>
             </div>
 
+            {/* Sending post data using context api */}
             <postsList.Provider value={profile.post}>
                 <PostUser />
             </postsList.Provider>

@@ -8,6 +8,7 @@ import { checkIfAuthenticated } from "../../../services/AuthService";
 import { commentsList } from "../posts/PostView";
 
 function CommentList({ history, match }) {
+    /* Initialize the states */
     const [comment, setComment] = useState({
         user_id: "",
         description: "",
@@ -15,7 +16,6 @@ function CommentList({ history, match }) {
     });
 
     useEffect(() => {
-        console.log(history, match);
         const isAuthenticated = checkIfAuthenticated();
         if (isAuthenticated) {
             setComment({
@@ -36,9 +36,10 @@ function CommentList({ history, match }) {
 
     const submitForm = async (e) => {
         e.preventDefault();
-        //console.log(props);
-        const postId = match.params.id;
+
         setComment({ ...comment, isLoading: true });
+
+        const postId = match.params.id;
         const commentBody = {
             user_id: comment.user_id,
             post_id: postId,
@@ -47,8 +48,8 @@ function CommentList({ history, match }) {
 
         const profile = await getProfile(comment.user_id);
 
+        /* Sending data to backend for response */
         const response = await storeNewComment(commentBody);
-        console.log(response);
         if (response.success) {
             setComment({
                 ...comment,
@@ -62,7 +63,6 @@ function CommentList({ history, match }) {
                 description: comment.description,
             };
             commentList.unshift(commentBody2);
-            //window.location.href = PUBLIC_URL + `posts/${postId}`;
             history.push(`${PUBLIC_URL}posts/${postId}`);
         } else {
             console.log("response.errors", response.errors);

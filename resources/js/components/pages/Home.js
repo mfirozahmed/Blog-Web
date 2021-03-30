@@ -5,6 +5,7 @@ import { PUBLIC_URL } from "../../constants";
 import { getPostList } from "../../services/PostService";
 
 const Home = () => {
+    /* Initialize the states */
     const [post, setPost] = useState({
         postList: [],
         isLoading: false,
@@ -16,8 +17,11 @@ const Home = () => {
         getPostLists();
     }, []);
 
+    /* Get all the post */
     const getPostLists = async () => {
         setPost({ ...post, isLoading: true });
+
+        /* Sending request to backend for data */
         const response = await getPostList();
         if (response.success) {
             setPost({
@@ -33,9 +37,10 @@ const Home = () => {
         }
     };
 
+    /* Show more post */
     const showMore = () => {
         setVisible((prevValue) => {
-            prevValue + 1;
+            prevValue + 10;
         });
     };
 

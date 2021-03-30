@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { paginationList } from "../pages/Users";
 
 const Pagination = ({ pageChange }) => {
+    /* Get the necessary data from the parent class */
     const { usersPerPage, totalUsers, currentPage } = useContext(
         paginationList
     );
@@ -14,6 +15,7 @@ const Pagination = ({ pageChange }) => {
     const firstPage = pageNumbers[0];
     const lastPage = pageNumbers[pageNumbers.length - 1];
 
+    /* Render page numbers depends on some condition */
     const renderPageNumbers = pageNumbers.map((number) => {
         if (currentPage >= 4 && number == 2) {
             return (

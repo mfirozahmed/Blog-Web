@@ -5,6 +5,7 @@ import { PUBLIC_URL } from "../../../constants";
 import { updatePost, showPost } from "../../../services/PostService";
 
 const PostEdit = (props) => {
+    /* Initialize the states */
     const [post, setPost] = useState({
         isLoading: false,
         id: "",
@@ -17,11 +18,13 @@ const PostEdit = (props) => {
         getPostDetails();
     }, []);
 
+    /* Get the post details */
     const getPostDetails = async () => {
         setPost({ ...post, isLoading: true });
         const postId = props.match.params.id;
+
+        /* Sending post id to backend for response */
         const res = await showPost(postId);
-        console.log(res);
         setPost({
             ...post,
             id: postId,
@@ -31,6 +34,7 @@ const PostEdit = (props) => {
         });
     };
 
+    /* Change form data as per input */
     const changeInput = (e) => {
         setPost({
             ...post,
@@ -38,6 +42,7 @@ const PostEdit = (props) => {
         });
     };
 
+    /* Submit data using the inputs */
     const submitForm = async (e) => {
         e.preventDefault();
         const { history } = props;
@@ -47,6 +52,8 @@ const PostEdit = (props) => {
             title: post.name,
             description: post.description,
         };
+
+        /* Sending data to backend for response */
         const response = await updatePost(post.id, postBody);
         if (response.success) {
             setPost({
