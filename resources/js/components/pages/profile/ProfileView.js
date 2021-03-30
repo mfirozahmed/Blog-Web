@@ -59,68 +59,104 @@ function ProfileView(props) {
             </div>
             <div className="card-body">
                 <div className="row">
-                    <div className="input-group mb-3" style={divStyle}>
+                    <div
+                        className="input-group mb-3"
+                        style={{
+                            width: "700px",
+                        }}
+                    >
                         <div className="input-group-prepend">
                             <span
                                 className="input-group-text"
-                                style={spanStyleA}
+                                style={{
+                                    width: "200px",
+                                }}
                             >
                                 Name
                             </span>
                             <span
                                 className="input-group-text"
-                                style={spanStyleb}
+                                style={{
+                                    width: "500px",
+                                }}
                             >
                                 {profile.name}
                             </span>
                         </div>
                     </div>
 
-                    <div className="input-group mb-3" style={divStyle}>
+                    <div
+                        className="input-group mb-3"
+                        style={{
+                            width: "700px",
+                        }}
+                    >
                         <div className="input-group-prepend">
                             <span
                                 className="input-group-text"
-                                style={spanStyleA}
+                                style={{
+                                    width: "200px",
+                                }}
                             >
                                 Username
                             </span>
                             <span
                                 className="input-group-text"
-                                style={spanStyleb}
+                                style={{
+                                    width: "500px",
+                                }}
                             >
                                 {profile.username}
                             </span>
                         </div>
                     </div>
 
-                    <div className="input-group mb-3" style={divStyle}>
+                    <div
+                        className="input-group mb-3"
+                        style={{
+                            width: "700px",
+                        }}
+                    >
                         <div className="input-group-prepend">
                             <span
                                 className="input-group-text"
-                                style={spanStyleA}
+                                style={{
+                                    width: "200px",
+                                }}
                             >
                                 Email
                             </span>
                             <span
                                 className="input-group-text"
-                                style={spanStyleb}
+                                style={{
+                                    width: "500px",
+                                }}
                             >
                                 {profile.email}
                             </span>
                         </div>
                     </div>
 
-                    <div className="input-group mb-3" style={divStyle}>
+                    <div
+                        className="input-group mb-3"
+                        style={{
+                            width: "700px",
+                        }}
+                    >
                         <div className="input-group-prepend">
                             <span
                                 className="input-group-text"
-                                style={spanStyleA}
+                                style={{
+                                    width: "200px",
+                                }}
                             >
                                 Website
                             </span>
                             <span
                                 className="input-group-text"
-                                style={spanStyleb}
+                                style={{
+                                    width: "500px",
+                                }}
                             >
                                 {profile.website}
                             </span>
@@ -148,16 +184,6 @@ function ProfileView(props) {
         </>
     );
 }
-
-const divStyle = {
-    width: "700px",
-};
-const spanStyleA = {
-    width: "200px",
-};
-const spanStyleb = {
-    width: "500px",
-};
 
 export default withRouter(ProfileView);
 export { postsList };

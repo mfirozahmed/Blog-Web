@@ -68,7 +68,9 @@ const MyBlog = () => {
             {post.searchPostList.map((eachPost, index) => (
                 <Card key={index} className="mt-3">
                     <Link to={`${PUBLIC_URL}posts/${eachPost.id}`}>
-                        <Card.Header>{eachPost.title}</Card.Header>
+                        <Card.Header>
+                            <h4>{eachPost.title}</h4>
+                        </Card.Header>
                     </Link>
                     <Card.Body>
                         <Card.Text>{eachPost.description}</Card.Text>

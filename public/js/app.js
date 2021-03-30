@@ -2522,6 +2522,133 @@ var Header = function Header(props) {
 
 /***/ }),
 
+/***/ "./resources/js/components/layouts/Pagination.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/layouts/Pagination.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _pages_Users__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/Users */ "./resources/js/components/pages/Users.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+var Pagination = function Pagination(_ref) {
+  var pageChange = _ref.pageChange;
+
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_pages_Users__WEBPACK_IMPORTED_MODULE_1__.paginationList),
+      usersPerPage = _useContext.usersPerPage,
+      totalUsers = _useContext.totalUsers,
+      currentPage = _useContext.currentPage;
+
+  var pageNumbers = [];
+
+  for (var i = 1; i <= Math.ceil(totalUsers / usersPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
+  var firstPage = pageNumbers[0];
+  var lastPage = pageNumbers[pageNumbers.length - 1];
+  var renderPageNumbers = pageNumbers.map(function (number) {
+    if (currentPage >= 4 && number == 2) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        className: "page-item disabled",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          className: "page-link",
+          children: "..."
+        })
+      }, number);
+    }
+
+    if (currentPage == number) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        className: "page-item active",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+          className: "page-link",
+          style: {
+            cursor: "pointer"
+          },
+          onClick: function onClick() {
+            return pageChange(number);
+          },
+          children: number
+        })
+      }, number);
+    } else if (number == currentPage + 1 || number == currentPage - 1 || number == lastPage || number == firstPage) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        className: "page-item",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+          className: "page-link",
+          style: {
+            cursor: "pointer"
+          },
+          onClick: function onClick() {
+            return pageChange(number);
+          },
+          children: number
+        })
+      }, number);
+    }
+
+    if (currentPage <= lastPage - 3 && number == lastPage - 1) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        className: "page-item disabled",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          className: "page-link",
+          children: "..."
+        })
+      }, number);
+    }
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("nav", {
+      "aria-label": "Page navigation example",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
+        className: "pagination justify-content-center",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+          className: currentPage == pageNumbers[0] ? "page-item disabled" : "page-item",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+            className: "page-link",
+            style: {
+              cursor: "pointer"
+            },
+            onClick: function onClick() {
+              return pageChange(currentPage - 1);
+            },
+            tabIndex: "-1",
+            children: "Previous"
+          })
+        }), renderPageNumbers, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+          className: currentPage == pageNumbers[pageNumbers.length - 1] ? "page-item disabled" : "page-item",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+            className: "page-link",
+            style: {
+              cursor: "pointer"
+            },
+            onClick: function onClick() {
+              return pageChange(currentPage + 1);
+            },
+            children: "Next"
+          })
+        })]
+      })
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Pagination);
+
+/***/ }),
+
 /***/ "./resources/js/components/pages/Home.js":
 /*!***********************************************!*\
   !*** ./resources/js/components/pages/Home.js ***!
@@ -2678,7 +2805,9 @@ var Home = function Home() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
           to: "".concat(_constants__WEBPACK_IMPORTED_MODULE_2__.PUBLIC_URL, "posts/").concat(eachPost.id),
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Header, {
-            children: eachPost.title
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+              children: eachPost.title
+            })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Body, {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Text, {
@@ -2851,7 +2980,9 @@ var MyBlog = function MyBlog() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
           to: "".concat(_constants__WEBPACK_IMPORTED_MODULE_2__.PUBLIC_URL, "posts/").concat(eachPost.id),
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Header, {
-            children: eachPost.title
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+              children: eachPost.title
+            })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Body, {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default.Text, {
@@ -2876,18 +3007,21 @@ var MyBlog = function MyBlog() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "paginationList": () => (/* binding */ paginationList)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/InputGroup.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/FormControl.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Table.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/InputGroup.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/FormControl.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Table.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../constants */ "./resources/js/constants.js");
 /* harmony import */ var _services_ProfileService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/ProfileService */ "./resources/js/services/ProfileService.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _services_PaginationService__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/PaginationService */ "./resources/js/services/PaginationService.js");
+/* harmony import */ var _layouts_Pagination__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../layouts/Pagination */ "./resources/js/components/layouts/Pagination.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -2921,6 +3055,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+var paginationList = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_1__.createContext)();
+
 var Users = function Users() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
     isLoading: false,
@@ -2934,7 +3071,6 @@ var Users = function Users() {
 
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
     name: "asc",
-    username: "asc",
     email: "asc",
     website: "asc"
   }),
@@ -2942,13 +3078,21 @@ var Users = function Users() {
       sort = _useState4[0],
       setSort = _useState4[1];
 
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+    currentPage: 1,
+    userPerPage: 3
+  }),
+      _useState6 = _slicedToArray(_useState5, 2),
+      paginate = _useState6[0],
+      setPaginate = _useState6[1];
+
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getAllProfiles();
   }, []);
 
   var getAllProfiles = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var data, response;
+      var data, response, paginateData, paginationResponse;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -2971,6 +3115,20 @@ var Users = function Users() {
                   profileList: response.data,
                   isLoading: false
                 }));
+                paginateData = (0,_services_PaginationService__WEBPACK_IMPORTED_MODULE_4__.getPaginatedData)();
+
+                if (!paginateData) {
+                  paginationResponse = {
+                    currentPage: paginate.currentPage,
+                    userPerPage: paginate.userPerPage
+                  };
+                  localStorage.setItem("paginateData", JSON.stringify(paginationResponse));
+                } else {
+                  setPaginate({
+                    currentPage: paginateData.currentPage,
+                    userPerPage: paginateData.userPerPage
+                  });
+                }
               } else {
                 setProfile(_objectSpread(_objectSpread({}, profile), {}, {
                   isLoading: false
@@ -3013,21 +3171,6 @@ var Users = function Users() {
                 data = {
                   column: "name",
                   order: sort.name
-                };
-              } else if (column == "username") {
-                if (sort.username == "asc") {
-                  setSort(_objectSpread(_objectSpread({}, sort), {}, {
-                    username: "desc"
-                  }));
-                } else {
-                  setSort(_objectSpread(_objectSpread({}, sort), {}, {
-                    username: "asc"
-                  }));
-                }
-
-                data = {
-                  column: "username",
-                  order: sort.username
                 };
               } else if (column == "email") {
                 if (sort.email == "asc") {
@@ -3101,7 +3244,7 @@ var Users = function Users() {
 
     if (searchText.length > 0) {
       var searchData = profile.profileList.filter(function (profile) {
-        var profileData = profile.name + " " + profile.username + " " + profile.email + " " + profile.website;
+        var profileData = profile.name + " " + profile.email + " " + profile.website;
         var textData = searchText.trim().toLowerCase();
         console.log("next:" + textData);
         return profileData.trim().toLowerCase().indexOf(textData) !== -1;
@@ -3119,19 +3262,46 @@ var Users = function Users() {
     }
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+  var indexOfLastUser = paginate.currentPage * paginate.userPerPage;
+  var indexOfFirstUser = indexOfLastUser - paginate.userPerPage;
+  var currentUsers = profile.profileList.slice(indexOfFirstUser, indexOfLastUser);
+
+  var pageChange = function pageChange(pageNumber) {
+    setPaginate(_objectSpread(_objectSpread({}, paginate), {}, {
+      currentPage: pageNumber
+    }));
+    var paginationResponse = {
+      currentPage: pageNumber,
+      userPerPage: paginate.userPerPage
+    };
+    localStorage.setItem("paginateData", JSON.stringify(paginationResponse));
+  };
+
+  var onPerPage = function onPerPage(e) {
+    var userPerPage = e.target.value;
+    setPaginate(_objectSpread(_objectSpread({}, paginate), {}, {
+      userPerPage: userPerPage
+    }));
+    var paginationResponse = {
+      currentPage: paginate.currentPage,
+      userPerPage: userPerPage
+    };
+    localStorage.setItem("paginateData", JSON.stringify(paginationResponse));
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "header-part",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "float-left",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
           children: "User's Info"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "float-left text-center ml-5",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default, {
           className: "mb-3",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default, {
             placeholder: "Type to Search...",
             "aria-label": "Type to Search...",
             "aria-describedby": "basic-addon2",
@@ -3140,75 +3310,130 @@ var Users = function Users() {
             }
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "float-right text-center ml-5",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "dropdown",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+            className: "btn dropdown-toggle",
+            type: "button",
+            id: "perPage",
+            "data-toggle": "dropdown",
+            children: "Per Page"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "dropdown-menu",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+              className: paginate.userPerPage == 3 ? "dropdown-item active" : "dropdown-item",
+              value: "3",
+              type: "button",
+              onClick: function onClick(e) {
+                return onPerPage(e);
+              },
+              children: "3 per page"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+              className: paginate.userPerPage == 5 ? "dropdown-item active" : "dropdown-item",
+              value: "5",
+              type: "button",
+              onClick: function onClick(e) {
+                return onPerPage(e);
+              },
+              children: "5 per page"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+              className: paginate.userPerPage == 7 ? "dropdown-item active" : "dropdown-item",
+              value: "7",
+              type: "button",
+              onClick: function onClick(e) {
+                return onPerPage(e);
+              },
+              children: "7 per page"
+            })]
+          })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "clearfix"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__.default, {
       className: "text-center mt-3",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("thead", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tr", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("thead", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("tr", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
             onClick: function onClick() {
               return clickedColumn("name");
             },
-            children: "Name"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
-            onClick: function onClick() {
-              return clickedColumn("username");
+            style: {
+              cursor: "pointer"
             },
-            children: "Username"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
+              children: "Name"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
             onClick: function onClick() {
               return clickedColumn("email");
             },
-            children: "Email"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+            style: {
+              cursor: "pointer"
+            },
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
+              children: "Email"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
             onClick: function onClick() {
               return clickedColumn("website");
             },
-            children: "Website"
+            style: {
+              cursor: "pointer"
+            },
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
+              children: "Website"
+            })
           })]
         })
-      }), !profile.searchText ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("tbody", {
-        children: profile.profileList.map(function (eachProfile, index) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tr", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
+      }), !profile.searchText ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("tbody", {
+        children: currentUsers.map(function (eachProfile, index) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("tr", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link, {
                 to: "".concat(_constants__WEBPACK_IMPORTED_MODULE_2__.PUBLIC_URL, "profile/").concat(eachProfile.user_id),
                 children: eachProfile.name
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
-              children: eachProfile.username
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
               children: eachProfile.email
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
               children: eachProfile.website
             })]
           }, index);
         })
-      }) : null, profile.searchText ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("tbody", {
+      }) : null, profile.searchText ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("tbody", {
         children: profile.searchProfileList.map(function (eachProfile, index) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tr", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("tr", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link, {
                 to: "".concat(_constants__WEBPACK_IMPORTED_MODULE_2__.PUBLIC_URL, "profile/").concat(eachProfile.user_id),
                 children: eachProfile.name
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
-              children: eachProfile.username
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
               children: eachProfile.email
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
               children: eachProfile.website
             })]
           }, index);
         })
       }) : null]
-    })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(paginationList.Provider, {
+      value: {
+        usersPerPage: paginate.userPerPage,
+        totalUsers: profile.profileList.length,
+        currentPage: paginate.currentPage
+      },
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_layouts_Pagination__WEBPACK_IMPORTED_MODULE_5__.default, {
+        pageChange: pageChange
+      })
+    }), ";"]
   });
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Users);
+
 
 /***/ }),
 
@@ -3312,7 +3537,6 @@ var Login = function Login(props) {
 
             case 6:
               response = _context.sent;
-              console.log(response);
 
               if (response.success) {
                 setFormData({
@@ -3326,15 +3550,14 @@ var Login = function Login(props) {
                 window.location.href = _constants__WEBPACK_IMPORTED_MODULE_2__.PUBLIC_URL;
               } else {
                 console.log("response.errors", response.errors);
-                setFormData({
+                setFormData(_objectSpread(_objectSpread({}, formData), {}, {
                   errors: response.errors,
                   isLoading: false,
                   errorMessage: response.message
-                });
-                localStorage.setItem("loginData", null);
+                }));
               }
 
-            case 9:
+            case 8:
             case "end":
               return _context.stop();
           }
@@ -3588,14 +3811,14 @@ var Register = function Register(props) {
                   isLoading: false,
                   errors: {}
                 });
-                localStorage.setItem("loginData", JSON.stringify(response)); // history.push(`${PUBLIC_URL}projects`);
+                localStorage.setItem("loginData", JSON.stringify(response));
+                window.location.href = _constants__WEBPACK_IMPORTED_MODULE_3__.PUBLIC_URL;
               } else {
                 console.log("response.errors", response.errors);
                 setFormData(_objectSpread(_objectSpread({}, formData), {}, {
                   errors: response.errors,
                   isLoading: false
-                }));
-                localStorage.setItem("loginData", null);
+                })); //localStorage.setItem("loginData", null);
               }
 
             case 9:
@@ -4497,7 +4720,9 @@ var PostUser = function PostUser() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
           to: "".concat(_constants__WEBPACK_IMPORTED_MODULE_1__.PUBLIC_URL, "posts/").concat(eachPost.id),
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Header, {
-            children: eachPost.title
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+              children: eachPost.title
+            })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Body, {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Text, {
@@ -5187,61 +5412,85 @@ function ProfileView(props) {
         className: "row",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "input-group mb-3",
-          style: divStyle,
+          style: {
+            width: "700px"
+          },
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "input-group-prepend",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
               className: "input-group-text",
-              style: spanStyleA,
+              style: {
+                width: "200px"
+              },
               children: "Name"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
               className: "input-group-text",
-              style: spanStyleb,
+              style: {
+                width: "500px"
+              },
               children: profile.name
             })]
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "input-group mb-3",
-          style: divStyle,
+          style: {
+            width: "700px"
+          },
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "input-group-prepend",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
               className: "input-group-text",
-              style: spanStyleA,
+              style: {
+                width: "200px"
+              },
               children: "Username"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
               className: "input-group-text",
-              style: spanStyleb,
+              style: {
+                width: "500px"
+              },
               children: profile.username
             })]
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "input-group mb-3",
-          style: divStyle,
+          style: {
+            width: "700px"
+          },
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "input-group-prepend",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
               className: "input-group-text",
-              style: spanStyleA,
+              style: {
+                width: "200px"
+              },
               children: "Email"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
               className: "input-group-text",
-              style: spanStyleb,
+              style: {
+                width: "500px"
+              },
               children: profile.email
             })]
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "input-group mb-3",
-          style: divStyle,
+          style: {
+            width: "700px"
+          },
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "input-group-prepend",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
               className: "input-group-text",
-              style: spanStyleA,
+              style: {
+                width: "200px"
+              },
               children: "Website"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
               className: "input-group-text",
-              style: spanStyleb,
+              style: {
+                width: "500px"
+              },
               children: profile.website
             })]
           })
@@ -5264,15 +5513,6 @@ function ProfileView(props) {
   });
 }
 
-var divStyle = {
-  width: "700px"
-};
-var spanStyleA = {
-  width: "200px"
-};
-var spanStyleb = {
-  width: "500px"
-};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_9__.withRouter)(ProfileView));
 
 
@@ -5453,6 +5693,30 @@ var storeNewComment = /*#__PURE__*/function () {
     return _ref.apply(this, arguments);
   };
 }();
+
+/***/ }),
+
+/***/ "./resources/js/services/PaginationService.js":
+/*!****************************************************!*\
+  !*** ./resources/js/services/PaginationService.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getPaginatedData": () => (/* binding */ getPaginatedData)
+/* harmony export */ });
+var getPaginatedData = function getPaginatedData() {
+  var getPaginateData = localStorage.getItem("paginateData");
+
+  if (getPaginateData != null) {
+    var data = JSON.parse(getPaginateData);
+    return data;
+  }
+
+  return false;
+};
 
 /***/ }),
 

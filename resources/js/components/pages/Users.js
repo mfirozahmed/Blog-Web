@@ -1,9 +1,12 @@
 import { Table, InputGroup, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createContext } from "react";
 import { PUBLIC_URL } from "../../constants";
 import { getProfiles, customizedProfile } from "../../services/ProfileService";
+import { getPaginatedData } from "../../services/PaginationService";
+import Pagination from "../layouts/Pagination";
 
+const paginationList = createContext();
 const Users = () => {
     const [profile, setProfile] = useState({
         isLoading: false,
@@ -13,10 +16,14 @@ const Users = () => {
     });
     const [sort, setSort] = useState({
         name: "asc",
-        username: "asc",
         email: "asc",
         website: "asc",
     });
+    const [paginate, setPaginate] = useState({
+        currentPage: 1,
+        userPerPage: 3,
+    });
+
     useEffect(() => {
         getAllProfiles();
     }, []);
@@ -34,6 +41,23 @@ const Users = () => {
                 profileList: response.data,
                 isLoading: false,
             });
+
+            const paginateData = getPaginatedData();
+            if (!paginateData) {
+                const paginationResponse = {
+                    currentPage: paginate.currentPage,
+                    userPerPage: paginate.userPerPage,
+                };
+                localStorage.setItem(
+                    "paginateData",
+                    JSON.stringify(paginationResponse)
+                );
+            } else {
+                setPaginate({
+                    currentPage: paginateData.currentPage,
+                    userPerPage: paginateData.userPerPage,
+                });
+            }
         } else {
             setProfile({
                 ...profile,
@@ -58,22 +82,6 @@ const Users = () => {
             data = {
                 column: "name",
                 order: sort.name,
-            };
-        } else if (column == "username") {
-            if (sort.username == "asc") {
-                setSort({
-                    ...sort,
-                    username: "desc",
-                });
-            } else {
-                setSort({
-                    ...sort,
-                    username: "asc",
-                });
-            }
-            data = {
-                column: "username",
-                order: sort.username,
             };
         } else if (column == "email") {
             if (sort.email == "asc") {
@@ -134,13 +142,7 @@ const Users = () => {
         if (searchText.length > 0) {
             const searchData = profile.profileList.filter((profile) => {
                 const profileData =
-                    profile.name +
-                    " " +
-                    profile.username +
-                    " " +
-                    profile.email +
-                    " " +
-                    profile.website;
+                    profile.name + " " + profile.email + " " + profile.website;
                 const textData = searchText.trim().toLowerCase();
                 console.log("next:" + textData);
                 return (
@@ -161,6 +163,39 @@ const Users = () => {
             getAllProfiles();
         }
     };
+
+    const indexOfLastUser = paginate.currentPage * paginate.userPerPage;
+    const indexOfFirstUser = indexOfLastUser - paginate.userPerPage;
+    const currentUsers = profile.profileList.slice(
+        indexOfFirstUser,
+        indexOfLastUser
+    );
+
+    const pageChange = (pageNumber) => {
+        setPaginate({ ...paginate, currentPage: pageNumber });
+        const paginationResponse = {
+            currentPage: pageNumber,
+            userPerPage: paginate.userPerPage,
+        };
+        localStorage.setItem(
+            "paginateData",
+            JSON.stringify(paginationResponse)
+        );
+    };
+
+    const onPerPage = (e) => {
+        const userPerPage = e.target.value;
+        setPaginate({ ...paginate, userPerPage: userPerPage });
+        const paginationResponse = {
+            currentPage: paginate.currentPage,
+            userPerPage: userPerPage,
+        };
+        localStorage.setItem(
+            "paginateData",
+            JSON.stringify(paginationResponse)
+        );
+    };
+
     return (
         <>
             <div className="header-part">
@@ -177,25 +212,84 @@ const Users = () => {
                         />
                     </InputGroup>
                 </div>
+                <div className="float-right text-center ml-5">
+                    <div className="dropdown">
+                        <button
+                            className="btn dropdown-toggle"
+                            type="button"
+                            id="perPage"
+                            data-toggle="dropdown"
+                        >
+                            Per Page
+                        </button>
+                        <div className="dropdown-menu">
+                            <option
+                                className={
+                                    paginate.userPerPage == 3
+                                        ? "dropdown-item active"
+                                        : "dropdown-item"
+                                }
+                                value="3"
+                                type="button"
+                                onClick={(e) => onPerPage(e)}
+                            >
+                                3 per page
+                            </option>
+                            <option
+                                className={
+                                    paginate.userPerPage == 5
+                                        ? "dropdown-item active"
+                                        : "dropdown-item"
+                                }
+                                value="5"
+                                type="button"
+                                onClick={(e) => onPerPage(e)}
+                            >
+                                5 per page
+                            </option>
+                            <option
+                                className={
+                                    paginate.userPerPage == 7
+                                        ? "dropdown-item active"
+                                        : "dropdown-item"
+                                }
+                                value="7"
+                                type="button"
+                                onClick={(e) => onPerPage(e)}
+                            >
+                                7 per page
+                            </option>
+                        </div>
+                    </div>
+                </div>
                 <div className="clearfix"></div>
             </div>
-
             <Table className="text-center mt-3">
                 <thead>
                     <tr>
-                        <th onClick={() => clickedColumn("name")}>Name</th>
-                        <th onClick={() => clickedColumn("username")}>
-                            Username
+                        <th
+                            onClick={() => clickedColumn("name")}
+                            style={{ cursor: "pointer" }}
+                        >
+                            <h4>Name</h4>
                         </th>
-                        <th onClick={() => clickedColumn("email")}>Email</th>
-                        <th onClick={() => clickedColumn("website")}>
-                            Website
+                        <th
+                            onClick={() => clickedColumn("email")}
+                            style={{ cursor: "pointer" }}
+                        >
+                            <h4>Email</h4>
+                        </th>
+                        <th
+                            onClick={() => clickedColumn("website")}
+                            style={{ cursor: "pointer" }}
+                        >
+                            <h4>Website</h4>
                         </th>
                     </tr>
                 </thead>
                 {!profile.searchText ? (
                     <tbody>
-                        {profile.profileList.map((eachProfile, index) => (
+                        {currentUsers.map((eachProfile, index) => (
                             <tr key={index}>
                                 <td>
                                     <Link
@@ -204,7 +298,6 @@ const Users = () => {
                                         {eachProfile.name}
                                     </Link>
                                 </td>
-                                <td>{eachProfile.username}</td>
                                 <td>{eachProfile.email}</td>
                                 <td>{eachProfile.website}</td>
                             </tr>
@@ -222,7 +315,6 @@ const Users = () => {
                                         {eachProfile.name}
                                     </Link>
                                 </td>
-                                <td>{eachProfile.username}</td>
                                 <td>{eachProfile.email}</td>
                                 <td>{eachProfile.website}</td>
                             </tr>
@@ -230,8 +322,19 @@ const Users = () => {
                     </tbody>
                 ) : null}
             </Table>
+            <paginationList.Provider
+                value={{
+                    usersPerPage: paginate.userPerPage,
+                    totalUsers: profile.profileList.length,
+                    currentPage: paginate.currentPage,
+                }}
+            >
+                <Pagination pageChange={pageChange} />
+            </paginationList.Provider>
+            ;
         </>
     );
 };
 
 export default Users;
+export { paginationList };

@@ -67,7 +67,7 @@ const Register = (props) => {
                 errors: {},
             });
             localStorage.setItem("loginData", JSON.stringify(response));
-            // history.push(`${PUBLIC_URL}projects`);
+            window.location.href = PUBLIC_URL;
         } else {
             console.log("response.errors", response.errors);
             setFormData({
@@ -75,7 +75,7 @@ const Register = (props) => {
                 errors: response.errors,
                 isLoading: false,
             });
-            localStorage.setItem("loginData", null);
+            //localStorage.setItem("loginData", null);
         }
     };
 

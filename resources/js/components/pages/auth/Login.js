@@ -34,7 +34,6 @@ const Login = (props) => {
         };
 
         const response = await loginUser(postBody);
-        console.log(response);
         if (response.success) {
             setFormData({
                 email: "",
@@ -48,11 +47,11 @@ const Login = (props) => {
         } else {
             console.log("response.errors", response.errors);
             setFormData({
+                ...formData,
                 errors: response.errors,
                 isLoading: false,
                 errorMessage: response.message,
             });
-            localStorage.setItem("loginData", null);
         }
     };
 
