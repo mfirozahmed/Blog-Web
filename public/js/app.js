@@ -2185,25 +2185,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _layouts_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./layouts/Header */ "./resources/js/components/layouts/Header.js");
 /* harmony import */ var _layouts_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./layouts/Footer */ "./resources/js/components/layouts/Footer.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Container.js");
-/* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/Home */ "./resources/js/components/pages/Home.js");
-/* harmony import */ var _pages_MyBlogs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/MyBlogs */ "./resources/js/components/pages/MyBlogs.js");
-/* harmony import */ var _pages_Users__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/Users */ "./resources/js/components/pages/Users.js");
-/* harmony import */ var _pages_auth_Register__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/auth/Register */ "./resources/js/components/pages/auth/Register.js");
-/* harmony import */ var _pages_auth_Login__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/auth/Login */ "./resources/js/components/pages/auth/Login.js");
-/* harmony import */ var _AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./AuthenticatedRoutes */ "./resources/js/components/AuthenticatedRoutes.js");
-/* harmony import */ var _pages_posts_PostCreate__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/posts/PostCreate */ "./resources/js/components/pages/posts/PostCreate.js");
-/* harmony import */ var _pages_posts_PostEdit__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/posts/PostEdit */ "./resources/js/components/pages/posts/PostEdit.js");
-/* harmony import */ var _pages_posts_PostView__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/posts/PostView */ "./resources/js/components/pages/posts/PostView.js");
-/* harmony import */ var _pages_profile_ProfileView__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/profile/ProfileView */ "./resources/js/components/pages/profile/ProfileView.js");
-/* harmony import */ var _pages_profile_ProfileEdit__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/profile/ProfileEdit */ "./resources/js/components/pages/profile/ProfileEdit.js");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../constants */ "./resources/js/constants.js");
-/* harmony import */ var _services_AuthService__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../services/AuthService */ "./resources/js/services/AuthService.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Container.js");
+/* harmony import */ var _pages_test__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/test */ "./resources/js/components/pages/test.js");
+/* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/Home */ "./resources/js/components/pages/Home.js");
+/* harmony import */ var _pages_MyBlogs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/MyBlogs */ "./resources/js/components/pages/MyBlogs.js");
+/* harmony import */ var _pages_Users__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/Users */ "./resources/js/components/pages/Users.js");
+/* harmony import */ var _pages_auth_Register__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/auth/Register */ "./resources/js/components/pages/auth/Register.js");
+/* harmony import */ var _pages_auth_Login__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/auth/Login */ "./resources/js/components/pages/auth/Login.js");
+/* harmony import */ var _AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./AuthenticatedRoutes */ "./resources/js/components/AuthenticatedRoutes.js");
+/* harmony import */ var _pages_posts_PostCreate__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/posts/PostCreate */ "./resources/js/components/pages/posts/PostCreate.js");
+/* harmony import */ var _pages_posts_PostEdit__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/posts/PostEdit */ "./resources/js/components/pages/posts/PostEdit.js");
+/* harmony import */ var _pages_posts_PostView__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/posts/PostView */ "./resources/js/components/pages/posts/PostView.js");
+/* harmony import */ var _pages_profile_ProfileView__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/profile/ProfileView */ "./resources/js/components/pages/profile/ProfileView.js");
+/* harmony import */ var _pages_profile_ProfileEdit__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/profile/ProfileEdit */ "./resources/js/components/pages/profile/ProfileEdit.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../constants */ "./resources/js/constants.js");
+/* harmony import */ var _services_AuthService__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../services/AuthService */ "./resources/js/services/AuthService.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2239,6 +2240,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var App = function App() {
   /* Initialize the states */
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
@@ -2250,67 +2252,71 @@ var App = function App() {
       setInfo = _useState2[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if ((0,_services_AuthService__WEBPACK_IMPORTED_MODULE_16__.checkIfAuthenticated)()) {
+    if ((0,_services_AuthService__WEBPACK_IMPORTED_MODULE_17__.checkIfAuthenticated)()) {
       setInfo({
-        user: (0,_services_AuthService__WEBPACK_IMPORTED_MODULE_16__.checkIfAuthenticated)(),
+        user: (0,_services_AuthService__WEBPACK_IMPORTED_MODULE_17__.checkIfAuthenticated)(),
         isLoggedIn: true
       });
     }
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.BrowserRouter, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_layouts_Header__WEBPACK_IMPORTED_MODULE_2__.default, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.BrowserRouter, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_layouts_Header__WEBPACK_IMPORTED_MODULE_2__.default, {
         authData: info
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_19__.default, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_20__.default, {
           className: "p-4",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Switch, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_15__.PUBLIC_URL, "users"),
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Switch, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_16__.PUBLIC_URL, "test"),
               exact: true,
-              component: _pages_Users__WEBPACK_IMPORTED_MODULE_6__.default
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_9__.default, {
+              component: _pages_test__WEBPACK_IMPORTED_MODULE_4__.default
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_16__.PUBLIC_URL, "users"),
+              exact: true,
+              component: _pages_Users__WEBPACK_IMPORTED_MODULE_7__.default
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_10__.default, {
               authed: info.isLoggedIn,
-              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_15__.PUBLIC_URL, "my-blogs"),
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_16__.PUBLIC_URL, "my-blogs"),
               exact: true,
-              component: _pages_MyBlogs__WEBPACK_IMPORTED_MODULE_5__.default
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_15__.PUBLIC_URL, "posts/:id"),
-              component: _pages_posts_PostView__WEBPACK_IMPORTED_MODULE_12__.default,
+              component: _pages_MyBlogs__WEBPACK_IMPORTED_MODULE_6__.default
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_16__.PUBLIC_URL, "posts/:id"),
+              component: _pages_posts_PostView__WEBPACK_IMPORTED_MODULE_13__.default,
               exact: true
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_9__.default, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_10__.default, {
               authed: info.isLoggedIn,
-              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_15__.PUBLIC_URL, "post/create"),
-              component: _pages_posts_PostCreate__WEBPACK_IMPORTED_MODULE_10__.default,
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_16__.PUBLIC_URL, "post/create"),
+              component: _pages_posts_PostCreate__WEBPACK_IMPORTED_MODULE_11__.default,
               exact: true
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_9__.default, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_10__.default, {
               authed: info.isLoggedIn,
-              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_15__.PUBLIC_URL, "post/edit/:id"),
-              component: _pages_posts_PostEdit__WEBPACK_IMPORTED_MODULE_11__.default,
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_16__.PUBLIC_URL, "post/edit/:id"),
+              component: _pages_posts_PostEdit__WEBPACK_IMPORTED_MODULE_12__.default,
               exact: true
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_15__.PUBLIC_URL, "profile/:id"),
-              component: _pages_profile_ProfileView__WEBPACK_IMPORTED_MODULE_13__.default,
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_16__.PUBLIC_URL, "profile/:id"),
+              component: _pages_profile_ProfileView__WEBPACK_IMPORTED_MODULE_14__.default,
               exact: true
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_9__.default, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_AuthenticatedRoutes__WEBPACK_IMPORTED_MODULE_10__.default, {
               authed: info.isLoggedIn,
-              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_15__.PUBLIC_URL, "profile/edit/:id"),
-              component: _pages_profile_ProfileEdit__WEBPACK_IMPORTED_MODULE_14__.default,
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_16__.PUBLIC_URL, "profile/edit/:id"),
+              component: _pages_profile_ProfileEdit__WEBPACK_IMPORTED_MODULE_15__.default,
               exact: true
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_15__.PUBLIC_URL, "register"),
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_16__.PUBLIC_URL, "register"),
               exact: true,
-              component: _pages_auth_Register__WEBPACK_IMPORTED_MODULE_7__.default
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_15__.PUBLIC_URL, "login"),
+              component: _pages_auth_Register__WEBPACK_IMPORTED_MODULE_8__.default
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_16__.PUBLIC_URL, "login"),
               exact: true,
-              component: _pages_auth_Login__WEBPACK_IMPORTED_MODULE_8__.default
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_20__.Route, {
-              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_15__.PUBLIC_URL),
+              component: _pages_auth_Login__WEBPACK_IMPORTED_MODULE_9__.default
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
+              path: "".concat(_constants__WEBPACK_IMPORTED_MODULE_16__.PUBLIC_URL),
               exact: true,
-              component: _pages_Home__WEBPACK_IMPORTED_MODULE_4__.default
+              component: _pages_Home__WEBPACK_IMPORTED_MODULE_5__.default
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_layouts_Footer__WEBPACK_IMPORTED_MODULE_3__.default, {})]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_layouts_Footer__WEBPACK_IMPORTED_MODULE_3__.default, {})]
         })
       })]
     })
@@ -2320,7 +2326,7 @@ var App = function App() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
 if (document.getElementById("app")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(App, {}), document.getElementById("app"));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(App, {}), document.getElementById("app"));
 }
 
 /***/ }),
@@ -5591,6 +5597,165 @@ function ProfileView(props) {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_9__.withRouter)(ProfileView));
 
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/test.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/pages/test.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+var test = /*#__PURE__*/function (_Component) {
+  _inherits(test, _Component);
+
+  var _super = _createSuper(test);
+
+  function test() {
+    var _this;
+
+    _classCallCheck(this, test);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      // Initially, no file is selected
+      selectedFile: null
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onFileChange", function (event) {
+      // Update the state
+      _this.setState({
+        selectedFile: event.target.files[0]
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onFileUpload", function () {
+      var file = {
+        title: "hello",
+        name: "bye"
+      }; // Create an object of formData
+
+      var formData = new FormData(); // Update the formData object
+
+      for (var _key2 in file) {
+        formData.append(_key2, file[_key2]);
+      } // Details of the uploaded file
+      //console.log(this.state.selectedFile);
+
+
+      var _iterator = _createForOfIteratorHelper(formData.keys()),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var key = _step.value;
+          console.log(key, formData.get(key));
+        } // Request made to the backend api
+        // Send formData object
+
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "fileData", function () {
+      if (_this.state.selectedFile) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+            children: "File Details:"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+            children: ["File Name: ", _this.state.selectedFile.name]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+            children: ["File Type: ", _this.state.selectedFile.type]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+            children: ["Last Modified:", " ", _this.state.selectedFile.lastModifiedDate.toDateString()]
+          })]
+        });
+      } else {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {
+            children: "Choose before Pressing the Upload button"
+          })]
+        });
+      }
+    });
+
+    return _this;
+  }
+
+  _createClass(test, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+          children: "GeeksforGeeks"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+          children: "File Upload using React!"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+            type: "file",
+            onChange: this.onFileChange
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+            onClick: this.onFileUpload,
+            children: "Upload!"
+          })]
+        }), this.fileData()]
+      });
+    }
+  }]);
+
+  return test;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (test);
 
 /***/ }),
 

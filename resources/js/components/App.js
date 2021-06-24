@@ -6,6 +6,7 @@ import Footer from "./layouts/Footer";
 import { Container } from "react-bootstrap";
 
 // Pages
+import Test from "./pages/test";
 import Home from "./pages/Home";
 import MyBlogs from "./pages/MyBlogs";
 import Users from "./pages/Users";
@@ -46,6 +47,11 @@ const App = () => {
                 <div>
                     <Container className="p-4">
                         <Switch>
+                            <Route
+                                path={`${PUBLIC_URL}test`}
+                                exact={true}
+                                component={Test}
+                            />
                             <Route
                                 path={`${PUBLIC_URL}users`}
                                 exact={true}
